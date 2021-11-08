@@ -10,9 +10,9 @@ Fonctions à implémenter :  V --> validé / rien --> à implémenter
 - afficher profit 
 - ajouter des objets V 
 - supprimer des objets 
-- solde
-- inventaire V 
-- gérer les client ( informations)
+- solde ou inflation -->  augmenter prix ou les baisser
+- montrer l'inventaire V 
+- gérer les client (demander informations)
 - Sauvegarder les données 
 - faire des test 
 - gérer personnel 
