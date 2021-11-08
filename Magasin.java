@@ -24,6 +24,7 @@ public class Magasin {
 			
 			System.out.print("Prix  de vente de l'article  :\n" );
 			prixVente = objet.nextDouble();
+			objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
 			
 		}
 		return new Article(nomArticle,prixAchat,prixVente);
