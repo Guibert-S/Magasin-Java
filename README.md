@@ -22,7 +22,7 @@ Fonctions à implémenter :  V --> validé / rien --> à implémenter / P-->prio
 - utiliser enum P
 - Utilise classes abstraites P 
 - function affiche banqueroute plus d'argent dans le magain
-- 
+- Utiliser collection: Map/Linked List au moins une 
 
 
 
