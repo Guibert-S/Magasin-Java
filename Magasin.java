@@ -14,15 +14,15 @@ public class Magasin {
 		double prixAchat = 0;
 		double prixVente = 0;
 		
-		while (nomArticle==null | prixAchat ==0 | prixVente ==0) {
+		while (nomArticle == null || prixAchat ==0 || prixVente ==0) {
 			
-			System.out.print("Nom de l'article :" );
+			System.out.print("Nom de l'article :\n" );
 			nomArticle = objet.nextLine(); // String // 
 			
-			System.out.print("Prix d'achat de l'article :" );
+			System.out.print("Prix d'achat de l'article :\n" );
 			prixAchat= objet.nextDouble();
 			
-			System.out.print("Prix  de vente de l'article :" );
+			System.out.print("Prix  de vente de l'article  :\n" );
 			prixVente = objet.nextDouble();
 			
 		}
@@ -43,10 +43,11 @@ public class Magasin {
 	public void afficherInventaire() {
 		for (int i=0; i<articles.length;i++) {
 			if (articles[i]!=null) {
-				System.out.print("Numéro de l'article"+(i+1) +"Nom"+ articles[i].getNom() + articles[i].getStock() ); ;
+				System.out.print(" Numéro de l'article  "+(i+1) +"  Nom : "+ articles[i].getNom() +" Prix d'achat: "+articles[i].getPrixAchat()+ " Prix de Vente : "+articles[i].getPrixVente() +" Stock :" + articles[i].getStock()+"\n" ); 
 			
 				}
 		}
 	}
 }
+
 
