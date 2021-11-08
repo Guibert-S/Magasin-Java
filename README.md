@@ -5,9 +5,10 @@ Fonctions à implémenter :  V --> validé / rien --> à implémenter
 
 
 
-- acheter / vendre 
+- acheter 
+- vendre 
 - gérer salaire  
-- afficher profit 
+- afficher profit d'une vente
 - ajouter des objets V 
 - supprimer des objets 
 - solde ou inflation -->  augmenter prix ou les baisser
