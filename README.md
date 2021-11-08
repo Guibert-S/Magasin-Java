@@ -7,6 +7,7 @@ Fonctions à implémenter :  V --> validé / rien --> à implémenter
 
 - acheter 
 - vendre 
+- changer le nom d'un produit
 - gérer salaire  
 - afficher profit d'une vente
 - ajouter des objets V 
