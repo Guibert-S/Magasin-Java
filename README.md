@@ -17,6 +17,8 @@ Fonctions à implémenter :  V --> validé / rien --> à implémenter
 - faire des test 
 - gérer personnel 
 - utiliser enum 
+- Utilise classes abstraites
+
 
 
 
