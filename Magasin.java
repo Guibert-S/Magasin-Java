@@ -1,13 +1,21 @@
-import java.util.Scanner; 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-public class Magasin {
+public class Magasin extends Client {
+	public Magasin(String nom, String prenom, int argent) {
+		super(nom, prenom, argent);
+		// TODO Auto-generated constructor stub
+	}
+
 	private double depense;
 	private double revenu;
 	// nombre d'articles dans le magasin //
-	private Article [] articles = new Article[200];
+	private Map<Article,Integer> articles = new HashMap<>();// dictionnaire reliant les articles avec leur stock 
+	private Map <Client,Integer> reduction = new HashMap<>();// dictionnaire reliant le client avec leur nombre d'achats 
 	static Scanner objet = new Scanner (System.in);
 	
-	// ajout d'article et saisie controle avex la boucle while //
+	// ajout d'article et saisie controle avec la boucle while //
 	
 	public Article creationArticle() {
 		String nomArticle = null;
@@ -30,25 +38,45 @@ public class Magasin {
 		return new Article(nomArticle,prixAchat,prixVente);
 	}
 	// Ajouter l'article à la liste/array/dictionnaire //
-	
-	public void ajouterArticle() {
-		for (int i=0; i<articles.length;i++) {
-			if (articles[i]==null) {
-				articles[i]= creationArticle() ;
-				i = articles.length; // si on ne met pas ça on rempli tous les articles.
-			}
-		}
+	public void afficherArticle(Article a) {
+		System.out.println("Nom article: "+a.getNom()+"Prix d'achat: "+a.getPrixAchat()+"Prix de vente: "+a.getPrixVente());
+	}
+	public void ajouterArticle(Article a) {
+		System.out.println("Quelle est le stock de votre article ?");
+		int c=objet.nextInt();
+		articles.put(a, c);
 	}
 	
+	public void vendre(Client c,Article a) {
+		int d=reduction.get(c);
+		if(c.getArgent()<a.getPrixVente()) {
+			System.out.println("Vous n'avez pas assez d'argent pour acheter cet article");
+			return;
+		}
+		else {
+			if(d>=5){// si le client a fait plus de 5 achats dans le magasin alors on applique une reduction de 20 %
+				c.setArgent(c.getArgent() - a.getPrixVente()*0.8);
+				this.revenu+=a.getPrixVente()*0.8;
+				reduction.put(c, d+1);
+				int b=articles.get(a); // on recupere l'int , le stock de l'article
+				articles.put(a, b-1); // diminue le stock de 1
+			}
+			else {
+				c.setArgent(c.getArgent() - a.getPrixVente());
+				this.revenu+=a.getPrixVente();
+				reduction.put(c, d+1);
+				int b=articles.get(a); // on recupere l'int , le stock de l'article
+				articles.put(a, b-1); // diminue le stock de 1
+			}
+	}
+}	
 	// Verifier que tout s'affiche bien //
 	public void afficherInventaire() {
-		for (int i=0; i<articles.length;i++) {
-			if (articles[i]!=null) {
-				System.out.print(" Numéro de l'article  "+(i+1) +"  Nom : "+ articles[i].getNom() +" Prix d'achat: "+articles[i].getPrixAchat()+ " Prix de Vente : "+articles[i].getPrixVente() +" Stock :" + articles[i].getStock()+"\n" ); 
+		for(Map.Entry<Article,Integer> paire: articles.entrySet()) {
+			Article a=paire.getKey();
+			int b=paire.getValue();
+			System.out.println(a+"Stock"+b);
 			
-				}
 		}
 	}
 }
-
-
