@@ -7,19 +7,19 @@ archi prio ppp
 
 
 - acheter PPP
-- vendre PPP
+- vendre PPP V 
 - Louer des produits
 - changer le nom d'un produit
 - gérer salaire PPP
 - afficher profit d'une vente
 - ajouter des objets V 
-- supprimer des objets 
+- supprimer des objets V 
 - solde baisser les prix 
 - augmenter prix (inflation)
 - montrer l'inventaire V 
 - demander information client
 - Sauvegarder les données PPP
-- faire des test PPP
+- faire des tests PPP
 - gérer personnel PPP
 - utiliser enum P
 - Utilise classes abstraites P 
