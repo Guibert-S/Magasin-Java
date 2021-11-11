@@ -6,7 +6,7 @@ archi prio ppp
 
 
 
-- acheter PPP
+- acheter PPP 
 - vendre PPP V 
 - Louer des produits
 - changer le nom d'un produit
@@ -30,4 +30,4 @@ archi prio ppp
 
 
 
-
+Prix achat et vente des prduits on le definit ou
