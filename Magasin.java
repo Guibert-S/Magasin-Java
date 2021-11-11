@@ -69,6 +69,19 @@ public class Magasin extends Client {
 				articles.put(a, b-1); // diminue le stock de 1
 			}
 	}
+	public void acheter(Fournisseur f, Article a, int nombreArticle) {
+		int n = nombreArticle*a.getPrixAchat(); // combien coute le total de ce que l'on achete
+		if ( n > this.revenu) {
+			System.out.println('Le magasin n a pas assez de tresorie pour acheter' + nombreArticle + a.nom +'au fournisseur' + f.nomFourni);
+			return;
+		}
+		else {
+			this.revenu= this.revenu - n;
+			int b=articles.get(a);
+			articles.put(a,b+n);
+		}
+	}
+		
 }	
 	// Verifier que tout s'affiche bien //
 	public void afficherInventaire() {
