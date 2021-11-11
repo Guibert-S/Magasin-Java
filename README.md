@@ -6,7 +6,7 @@ archi prio ppp
 
 
 
-- acheter PPP 
+- acheter PPP V mais a verifier
 - vendre PPP V 
 - Louer des produits
 - changer le nom d'un produit
@@ -25,7 +25,7 @@ archi prio ppp
 - Utilise classes abstraites P 
 - function affiche banqueroute plus d'argent dans le magain
 - Utiliser collection: Map/Linked List au moins une fois 
-- fournisseur P
+- fournisseur P Fait mais a verifier 
 
 
 
