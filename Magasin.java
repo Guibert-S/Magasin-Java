@@ -79,6 +79,8 @@ public class Magasin extends Client {
 			this.revenu= this.revenu - n;
 			int b=articles.get(a);
 			articles.put(a,b+n);
+			int e = f.getStockFourni();
+			f.setStockFourni(e-n);
 		}
 	}
 		
