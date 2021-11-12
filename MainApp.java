@@ -1,4 +1,4 @@
-
+//  ca marchait avant que je perde tout avec la coupure de courant mais j'ai refait et je comprends pas pourquoi ca marche pas :/
 public class MainApp {
 	 
 	public static void main (String[] args) {
