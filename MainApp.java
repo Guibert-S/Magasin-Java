@@ -1,12 +1,17 @@
-//  ca marchait avant que je perde tout avec la coupure de courant mais j'ai refait et je comprends pas pourquoi ca marche pas :/
+
+
+
 public class MainApp {
 	 
 	public static void main (String[] args) {
 		
+		
 		menuSelection(); // appel du menu //
 	
 	}
-
+	
+	
+	// en vrai on pourrait soit faires sous menus ou faire un menu en utilisant un case ou un dictionnaire //
 	public static void menuSelection() {
 		 boolean menu = true;
 		 while(menu==true) {
@@ -15,7 +20,10 @@ public class MainApp {
 			
 			System.out.println( " Option 1 : Ajouter un article" );
 			System.out.println( " Option 2 : " );
-			System.out.println( " Option 3 : Quitter" );
+			System.out.println( " Option 3 : " );
+			System.out.println( " Option 4 : " );
+			System.out.println( " Option 5 : " );
+			System.out.println( " Option 10 : Quitter" );
 			
 			int choix = Magasin.objet.nextInt(); 
 			
@@ -28,7 +36,19 @@ public class MainApp {
 			}
 			
 			if (choix ==3){
-				System.out.println( " Vous avez séléctionner 3 :  Quitter" );
+				System.out.println( " Vous avez séléctionner 3 : ");
+			}
+			
+			if (choix ==4){
+				System.out.println( " Vous avez séléctionner 4 : ");
+			}
+			
+			if (choix ==5){
+				System.out.println( " Vous avez séléctionner 5 : ");
+			}
+			
+			if (choix ==10){
+				System.out.println( " Bonne journée ! " );
 				menu = false; 
 			}
 			else{
@@ -37,3 +57,4 @@ public class MainApp {
 		}	
 	}
 }
+
