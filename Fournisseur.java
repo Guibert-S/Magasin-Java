@@ -3,8 +3,8 @@ public class Fournisseur {
 	
 	private String nomFourni;
 	private Article article;
-	private final int stockFourni;
-	// stock fini ou pas ?
+	private  int stockFourni;
+	
 	
 	public Fournisseur(String nomFourni, Article article, int stockFourni) {
 		this.nomFourni= nomFourni;
