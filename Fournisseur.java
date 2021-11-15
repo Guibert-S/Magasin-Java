@@ -15,7 +15,7 @@ public class Fournisseur {
 		return this.nomFourni;
 	}
 		
-	public String getStockFourni() {
+	public int getStockFourni() {
 		return this.stockFourni;
 	}
 		
