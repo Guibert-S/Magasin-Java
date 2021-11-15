@@ -23,4 +23,10 @@ public class Fournisseur {
 		this.stockFourni= stockFourni;
 	}
 
+	public Article getArticle() {
+		return article;
+	}
+	public void setArticle(Article article) {
+		this.article = article;
+	}
 }
