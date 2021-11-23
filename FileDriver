@@ -1,0 +1,49 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class FileDriver {
+	
+	
+	public static void afficherFichierSauvegarde(String chemin) { // chemin du fichier que l'on veut afficher //
+		
+		File file = new File(chemin);
+		
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+			String line = reader.readLine();
+			
+			while(line!= null )
+			{
+				System.out.println(line);
+				line = reader.readLine();  // permet d'incrémenter chaque ligne sinon on boucle sur la premiere// 
+			}
+			reader.close(); // fermer le fichier //
+		}catch(IOException e) { // attraper l'exeption //
+			e.printStackTrace(); 
+		}
+		}
+	
+	// marche pas encore // WORK IN PROGRESS //
+public static void Sauvegarder(String chemin, String article) { // chemin du fichier ou l'on veut écrire //
+		
+		File file = new File(chemin);
+		
+		try {
+			FileWriter writer = new FileWriter(file);
+			BufferedWriter bw =  new BufferedWriter(writer);
+			bw.write(article);
+			bw.newLine();
+			bw.close(); // fermer car sinon continue à lire le fichier //
+		} catch(IOException e) { // attraper l'exeption
+			}
+		}
+	
+	}
