@@ -97,7 +97,7 @@ public class Magasin extends Client {
 		
 	
 	// Verifier que tout s'affiche bien //
-	public void afficherInventaire() {
+	public static void  afficherInventaire() {
 		for(Map.Entry<Article,Integer> paire: articles.entrySet()) {
 			Article a=paire.getKey();
 			int b=paire.getValue();
