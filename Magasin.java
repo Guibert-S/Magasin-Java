@@ -11,18 +11,19 @@ public class Magasin extends Client {
 	private double depense;
 	private double revenu;
 	// nombre d'articles dans le magasin //
-	private Map<Article,Integer> articles = new HashMap<>();// dictionnaire reliant les articles avec leur stock 
+	private Map <Article,Integer> articles = new HashMap<>();// dictionnaire reliant les articles avec leur stock 
 	private Map <Client,Integer> reduction = new HashMap<>();// dictionnaire reliant le client avec leur nombre d'achats 
 	static Scanner objet = new Scanner (System.in);
 	
 	// ajout d'article et saisie controle avec la boucle while //
-	
-	public Article creationArticle() {
+	public static Article creationArticle() {
 		String nomArticle = null;
 		double prixAchat = 0;
 		double prixVente = 0;
-		
-		while (nomArticle == null || prixAchat ==0 || prixVente ==0) {
+		int promo = 0 ;
+		int stock = 0 ; 
+		String description = null ;
+		while (nomArticle == null || prixAchat ==0 || prixVente ==0 || description == null || promo ==0 ) {
 			
 			System.out.print("Nom de l'article :\n" );
 			nomArticle = objet.nextLine(); // String // 
@@ -32,14 +33,24 @@ public class Magasin extends Client {
 			
 			System.out.print("Prix  de vente de l'article  :\n" );
 			prixVente = objet.nextDouble();
-			objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
 			
+			System.out.print(" Article en promotion ?  :\n" );
+			promo = objet.nextInt();
+			
+			System.out.print(" Stock?  :\n" );
+			stock = objet.nextInt();
+			
+			System.out.print("Description de l'article :\n" );
+			description = objet.nextLine(); // String // 
+			
+			
+			objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
 		}
-		return new Article(nomArticle,prixAchat,prixVente);
+		return new Article(nomArticle, description,  prixAchat,  prixVente,  promo,stock);
 	}
-	// Ajouter l'article à la liste/array/dictionnaire //
+	
 	public void afficherArticle(Article a) {
-		System.out.println("Nom article: "+a.getNom()+"Prix d'achat: "+a.getPrixAchat()+"Prix de vente: "+a.getPrixVente());
+		System.out.println("Nom article: "+a.getNom()+"Prix d'achat: "+a.getPrixAchat()+"Prix de vente: "+a.getPrixVente()+"Descrption"+a.getDescription());
 	}
 	public void ajouterArticle(Article a) {
 		System.out.println("Quelle est le stock de votre article ?");
@@ -68,11 +79,11 @@ public class Magasin extends Client {
 				int b=articles.get(a); // on recupere l'int , le stock de l'article
 				articles.put(a, b-1); // diminue le stock de 1
 			}
-	}
+	} }
 	public void acheter(Fournisseur f, Article a, int nombreArticle) {
-		int n = nombreArticle*a.getPrixAchat(); // combien coute le total de ce que l'on achete
+		int n = (int) (nombreArticle*a.getPrixAchat()); // combien coute le total de ce que l'on achete
 		if ( n > this.revenu) {
-			System.out.println('Le magasin n a pas assez de tresorie pour acheter' + nombreArticle + a.nom +'au fournisseur' + f.nomFourni);
+			System.out.println("Le magasin n a pas assez de tresorie pour acheter" + nombreArticle + a.getNom() +"au fournisseur" + f.getNomFourni());
 			return;
 		}
 		else {
@@ -84,7 +95,7 @@ public class Magasin extends Client {
 		}
 	}
 		
-}	
+	
 	// Verifier que tout s'affiche bien //
 	public void afficherInventaire() {
 		for(Map.Entry<Article,Integer> paire: articles.entrySet()) {
