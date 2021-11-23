@@ -11,7 +11,7 @@ public class Magasin extends Client {
 	private double depense;
 	private double revenu;
 	// nombre d'articles dans le magasin //
-	private Map <Article,Integer> articles = new HashMap<>();// dictionnaire reliant les articles avec leur stock 
+	static Map <Article,Integer> articles = new HashMap<>();// dictionnaire reliant les articles avec leur stock  // j'ai passe en static sinon ca marchait pas
 	private Map <Client,Integer> reduction = new HashMap<>();// dictionnaire reliant le client avec leur nombre d'achats 
 	static Scanner objet = new Scanner (System.in);
 	
