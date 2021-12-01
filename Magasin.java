@@ -52,7 +52,7 @@ public class Magasin extends Client {
 	public void afficherArticle(Article a) {
 		System.out.println("Nom article: "+a.getNom()+"Prix d'achat: "+a.getPrixAchat()+"Prix de vente: "+a.getPrixVente()+"Descrption"+a.getDescription());
 	}
-	public void ajouterArticle(Article a) {
+	public static void ajouterArticle(Article a) {
 		System.out.println("Quelle est le stock de votre article ?");
 		int c=objet.nextInt();
 		articles.put(a, c);
