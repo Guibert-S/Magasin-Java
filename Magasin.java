@@ -97,12 +97,14 @@ public class Magasin extends Client {
 		
 	
 	// Verifier que tout s'affiche bien //
-	public static void  afficherInventaire() {
-		for(Map.Entry<Article,Integer> paire: articles.entrySet()) {
-			Article a=paire.getKey();
-			int b=paire.getValue();
-			System.out.println(a+"Stock"+b);
-			
-		}
+	public static void afficherInventaire() {
+		 Iterator it = articles.entrySet().iterator();
+	        while (it.hasNext()) {
+	            Map.Entry m = (Map.Entry) it.next();
+	            System.out.println("Article: "+((Article) m.getKey()).getNom()+", Stock: "+m.getValue());
+	        }
+	}
+	public void supArticle(Article a) {
+		articles.remove(a);
 	}
 }
