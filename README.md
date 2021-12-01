@@ -26,7 +26,9 @@ archi prio ppp
 - function affiche banqueroute plus d'argent dans le magain
 - Utiliser collection: Map/Linked List au moins une fois 
 - fournisseur P Fait mais a verifier 
-
+-menu
+- exception
+- test
 
 
 
