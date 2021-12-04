@@ -11,7 +11,15 @@ import java.io.InputStreamReader;
 
 public class FileDriver {
 	
+	 static String chemin = "C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt"; // variable global  je sais si c'est opti ? 
 	
+	
+	
+
+	
+
+		// FONCTIONS  DE LECTURE ET D'ECRITURE // 
+		
 	public static void afficherFichierSauvegarde(String chemin) { // chemin du fichier que l'on veut afficher //
 		
 		File file = new File(chemin);
@@ -31,19 +39,25 @@ public class FileDriver {
 		}
 		}
 	
-	// marche pas encore // WORK IN PROGRESS //
-public static void Sauvegarder(String chemin, String article) { // chemin du fichier ou l'on veut écrire //
+	
+public static void Sauvegarder(String chemin, Article article) { // chemin du fichier ou l'on veut écrire //
 		
 		File file = new File(chemin);
 		
 		try {
-			FileWriter writer = new FileWriter(file);
+			FileWriter writer = new FileWriter(file,true); // argument True = surcharge constructeur qui permet de ne pas écraser les données existantes
 			BufferedWriter bw =  new BufferedWriter(writer);
-			bw.write(article);
+			bw.write(article.toString()); // on converti article en string car la fonction prend uniquement des strings
 			bw.newLine();
 			bw.close(); // fermer car sinon continue à lire le fichier //
-		} catch(IOException e) { // attraper l'exeption
+		} catch(IOException e) { // attraper les exeptions
+			e.printStackTrace(); 
 			}
+		
 		}
+
+
+
 	
 	}
+
