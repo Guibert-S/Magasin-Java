@@ -31,7 +31,7 @@ archi prio ppp
 - test
 -  RAJOUTER FONCTION qui vérifie quand on ajoute qu'il y a pas déjà l'article qui existe déja.
 - gestion de toutes les EXCEPTIONS 
-- Création des 2 menus
+- Création des 2 menus (client / employe ) 
 
 
 Prix achat et vente des prduits on le definit ou
