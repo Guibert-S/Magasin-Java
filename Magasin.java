@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Iterator;
 
 public class Magasin extends Client {
 	public Magasin(String nom, String prenom, int argent) {
