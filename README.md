@@ -29,6 +29,7 @@ archi prio ppp
 -menu
 - exception
 - test
+-  RAJOUTER FONCTION qui vérifie quand on ajoute qu'il y a pas déjà l'article qui existe déja.
 
 
 
