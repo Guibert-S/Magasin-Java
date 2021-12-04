@@ -1,27 +1,14 @@
 
-
-
-import java.util.HashMap;
-import java.util.Map;
-import java.io.File;
-
 public class MainApp {
 	 
 	public static void main (String[] args) {
 		
 		
-		FileDriver.afficherFichierSauvegarde("C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt");  // Chargement des données du fichier txt //
-		
 		Article a = Magasin.creationArticle();
 		Magasin.ajouterArticle(a);
 		Magasin.afficherInventaire() ;
-		
-		// test dico //
-		Map <Article,Integer> Inventaire = new HashMap<>();
-		Inventaire.put(new Article("ff","ff",10,230, 1,1),1);
-		
-		
-			
+		FileDriver.Sauvegarder(FileDriver.chemin , a);
+		 
 		
 		
 	
@@ -39,7 +26,7 @@ public class MainApp {
 			System.out.println( "------ Séléction Menu ------" );
 			
 			System.out.println( " Option 1 : Ajouter un article" );
-			System.out.println( " Option 2 : " );
+			System.out.println( " Option 2 : Afficher Inventaire" );
 			System.out.println( " Option 3 : " );
 			System.out.println( " Option 4 : " );
 			System.out.println( " Option 5 : " );
@@ -49,12 +36,14 @@ public class MainApp {
 			
 			if (choix ==1){
 				System.out.println( " Vous avez séléctionner 1 :  Ajouter un article" );
-				Magasin.creationArticle();
-				
+				Article a = Magasin.creationArticle();
+				Magasin.ajouterArticle(a);
+				FileDriver.Sauvegarder(FileDriver.chemin , a);
 			}
 			
 			if (choix ==2){
-				System.out.println( " Vous avez séléctionner 2 : ");
+				System.out.println( " Vous avez séléctionner 2 : Afficher Inventaire ");
+				FileDriver.afficherFichierSauvegarde(FileDriver.chemin );  // Chargement des données du fichier txt //
 			}
 			
 			if (choix ==3){
