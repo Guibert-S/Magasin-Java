@@ -1,7 +1,7 @@
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Iterator;
 
 public class Magasin extends Client {
 	public Magasin(String nom, String prenom, int argent) {
@@ -29,6 +29,9 @@ public class Magasin extends Client {
 			System.out.print("Nom de l'article :\n" );
 			nomArticle = objet.nextLine(); // String // 
 			
+			System.out.print("Description de l'article :\n" );
+			description = objet.nextLine(); // String // 
+			 
 			System.out.print("Prix d'achat de l'article :\n" );
 			prixAchat= objet.nextDouble();
 			
@@ -41,10 +44,8 @@ public class Magasin extends Client {
 			System.out.print(" Stock?  :\n" );
 			stock = objet.nextInt();
 			
-			System.out.print("Description de l'article :\n" );
-			description = objet.nextLine(); // String // 
 			
-			
+
 			objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
 		}
 		return new Article(nomArticle, description,  prixAchat,  prixVente,  promo,stock);
@@ -97,7 +98,7 @@ public class Magasin extends Client {
 	}
 		
 	
-	// Verifier que tout s'affiche bien //
+	/// AFFICHAGE PARTIEL POUR LES CLIENTS  // 
 	public static void afficherInventaire() {
 		 Iterator it = articles.entrySet().iterator();
 	        while (it.hasNext()) {
@@ -105,6 +106,19 @@ public class Magasin extends Client {
 	            System.out.println("Article: "+((Article) m.getKey()).getNom()+", Stock: "+m.getValue());
 	        }
 	}
+	
+	// AFFICHAGE COMPLET POUR LES EMPLOYES  // 
+	public static void afficherInventaireComplet() {
+		 Iterator it = articles.entrySet().iterator();
+	        while (it.hasNext()) {
+	            Map.Entry m = (Map.Entry) it.next();
+	            System.out.println("Article: "+((Article) m.getKey()).getNom()+"Description: "+((Article) m.getKey()).getDescription()+"Prix d'achat: "+((Article) m.getKey()).getPrixAchat()+"Prix de vente: "+((Article) m.getKey()).getPrixVente()+"Promo ?: "+((Article) m.getKey()).getPromo() +"Stock 1: "+ ((Article) m.getKey()).getStock()+"Stock 2: "+m.getValue());
+	      
+	        }
+	}
+	
+	
+	
 	public void supArticle(Article a) {
 		articles.remove(a);
 	}
