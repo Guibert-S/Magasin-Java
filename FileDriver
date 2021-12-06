@@ -47,7 +47,7 @@ public static void Sauvegarder(String chemin, Article article) { // chemin du fi
 		try {
 			FileWriter writer = new FileWriter(file,true); // argument True = surcharge constructeur qui permet de ne pas écraser les données existantes
 			BufferedWriter bw =  new BufferedWriter(writer);
-			bw.write(article.toString()); // on converti article en string car la fonction prend uniquement des strings
+			bw.write("{("+article.getNom()+','+article.getDescription()+','+article.getPrixAchat()+','+article.getPrixVente()+','+article.getPromo()+','+article.getStock()+")}"); // on converti article en string car la fonction prend uniquement des strings
 			bw.newLine();
 			bw.close(); // fermer car sinon continue à lire le fichier //
 		} catch(IOException e) { // attraper les exeptions
@@ -60,4 +60,3 @@ public static void Sauvegarder(String chemin, Article article) { // chemin du fi
 
 	
 	}
-
