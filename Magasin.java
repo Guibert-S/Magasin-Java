@@ -123,7 +123,10 @@ public class Magasin extends Client {
 		FileDriver.afficherFichierSauvegarde(FileDriver.chemin ); 
 		System.out.println("Ecrivez le nom de l'article à supprimer");
 		System.out.println();
-		String supp = Magasin.objet.nextLine(); 
-		articles.remove(supp);
+		int id_article_supp = Magasin.objet.nextInt(); 
+		articles.remove(id_article_supp);
 	}
+	
+	
+	
 }
