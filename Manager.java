@@ -1,3 +1,4 @@
+
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
@@ -135,7 +136,17 @@ public class Manager extends Employe {
 		}
 		
 		if (choix ==3){
-			System.out.println( " Vous avez séléctionner 3 : ");
+			String a = "Menage";
+			System.out.println( " Vous avez séléctionner 1 :  Ajouter un employé menage " );
+			try {
+				if(emploi == a) {
+					manager.licencierMenage(nom,prenom,emploi,salaire);
+				}
+			}
+			catch (Exception e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
 		}
 		
 		if (choix ==4){
@@ -156,4 +167,3 @@ public class Manager extends Employe {
 	}
 	
 }
-	
