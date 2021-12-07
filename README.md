@@ -5,7 +5,7 @@ Fonctions à implémenter :  V --> validé / rien --> à implémenter / P-->prio
 archi prio ppp
 
 
-
+- manager avec menu selection marche pas encore 
 - acheter PPP V mais a verifier
 - vendre PPP V 
 - Louer des produits
