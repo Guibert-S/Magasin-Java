@@ -1,0 +1,159 @@
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Manager extends Employe {
+
+	public Set<Menage> equipe1;
+	public Set<Vendeur> equipe2;
+	
+	public Manager(String nom, String prenom, Poste emploi, int salaire) {
+		super(nom, prenom, emploi, salaire);
+	}
+	
+    // int :nombre d'employe dans l'equipe
+
+    public int GetnbrEquipe1(){
+        return equipe1.size();
+    }
+    
+    public int GetnbrEquipe2() {
+    	return equipe2.size();
+    }
+
+    //embauche d employé si pas trop deja
+    
+    public void embaucheMenage(String nom, String prenom, Poste emploi, int salaire){
+        if (equipe1.size()<6){
+            equipe1.add(new Menage(nom, prenom, emploi, salaire));
+        }
+        else{
+            throw new IllegalArgumentException("plus de place dans l'equipe menage");
+        }
+    }
+    
+    public void embaucheVendeur(String nom, String prenom, Poste emploi, int salaire, int vente){
+        if (equipe2.size()<10){
+            equipe2.add(new Vendeur(nom, prenom, emploi, salaire,vente));
+        }
+        else{
+            throw new IllegalArgumentException("plus de place dans l'equipe Vendeur");
+        }
+    }
+    
+    //licencier 
+    public void licencierMenage(Menage menage){
+    	if (equipe1.size()>1) {
+    		equipe1.remove(menage);
+    	}
+    	else{
+            throw new IllegalArgumentException("il ne reste que un employé dans l'equipe menage donc impossible de le licencier");
+        }
+    }
+    
+    public void licencierVendeur(Vendeur vendeur){
+    	if (equipe2.size()>1) {
+    		equipe2.remove(vendeur);
+    	}
+    	else{
+            throw new IllegalArgumentException("il ne reste que un vendeur donc impossible de le licencier");
+        }
+    }
+    
+ // scanner pour gerer les employé
+ 	static Scanner personne = new Scanner(System.in);
+ 	public static Employe embauche() {
+ 		String nom = null;
+ 		String prenom = null;
+ 		Poste emploi = null;
+ 		int salaire = 0;
+ 		while (nom == null || prenom ==null || emploi ==null || salaire ==0 ) {
+ 			
+ 			System.out.print("Nom de l'employé :\n" );
+ 			nom = personne.nextLine(); // String // 
+ 			
+ 			System.out.print("Prenom de l'employé :\n" );
+ 			prenom = personne.nextLine(); // String // 
+ 			 
+ 			System.out.print("Poste ? :\n" );
+ 			emploi = personne.nextLine();
+ 			
+ 			System.out.print(" Salaire ?  :\n" );
+ 			salaire = objet.nextInt();
+ 		
+ 			objet.nextLine() ; // 
+ 		}
+ 		return new Employe(nom, prenom,  emploi,  salaire);
+ 	}
+ 	
+ 	public void afficherEmploye(Employe e) {
+ 		System.out.println("Nom employé : "+e.getNom()+"Prenom employé : "+e.getPrenom()+"Poste: " +e.getPoste());
+ 	}
+
+ 	public static void main (String[] args) {
+ 		menuEmploye(); // Appel du menu //
+ 	}
+ 	
+	public static void menuEmploye() {
+		
+		boolean menu2=true;
+		
+		while (menu2==true) {
+			System.out.println();
+			System.out.println( "------ Séléction Menu Employe------" );
+			
+			System.out.println( " Option 1 : Ajouter un employe menage " );
+			System.out.println( " Option 2 : Ajoiuter un vendeur " );
+			System.out.println( " Option 3 : Licencier un employe menage" );
+			System.out.println( " Option 4 : Licencier un vendeur" );
+			System.out.println( " Option 5 : " );
+			System.out.println( " Option 10 : Quitter" );
+		}
+		
+		int choix = Manager.personne.nextInt(); 
+		
+		if (choix ==1) {
+			String a = "Menage";
+			System.out.println( " Vous avez séléctionner 1 :  Ajouter un employé menage " );
+			Employe e = Manager.embauche(); 
+			try {
+				if(emploi == a) {
+					manager.embaucheMenage(nom,prenom,emploi,salaire);
+				}
+				else {
+					System.out.println("Nous n'avons pas retenu sa candidature, mais nous lui souhaitons une bonne continuation (specialite hors typo)");
+				}
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+		if (choix ==2){
+			System.out.println( " Vous avez séléctionner 2 : Afficher Inventaire ");
+		
+		}
+		
+		if (choix ==3){
+			System.out.println( " Vous avez séléctionner 3 : ");
+		}
+		
+		if (choix ==4){
+			System.out.println( " Vous avez séléctionner 4 : ");
+		}
+		
+		if (choix ==5){
+			System.out.println( " Vous avez séléctionner 5 : ");
+		}
+		
+		if (choix ==10){
+			System.out.println( " Bonne journée ! " );
+			menu = false; 
+		}
+		else{
+			System.out.println( " Entrer une option valide ! " );
+		}
+	}
+	
+}
+	
