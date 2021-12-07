@@ -13,10 +13,6 @@ public class FileDriver {
 	
 	 static String chemin = "C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt"; // variable global  je sais si c'est opti ? 
 	
-	
-	
-
-	
 
 		// FONCTIONS  DE LECTURE ET D'ECRITURE // 
 		
@@ -31,6 +27,7 @@ public class FileDriver {
 			while(line!= null )
 			{
 				System.out.println(line);
+				System.out.println();
 				line = reader.readLine();  // permet d'incrémenter chaque ligne sinon on boucle sur la premiere// 
 			}
 			reader.close(); // fermer le fichier //
@@ -58,5 +55,47 @@ public static void Sauvegarder(String chemin, Article article) { // chemin du fi
 
 
 
+public static void chargerFichierSauvegarder(String chemin) { // chemin du fichier que l'on veut afficher //
+	
+	File file = new File(chemin);
+	final String SEPARATEUR= ",";
+	String nomArticle = null;
+	String description = null ;
+	double prixAchat = 0;
+	double prixVente = 0;
+	int promo = 0 ;
+	int stock1 = 0 ; 
+	int stock2 = 0 ;
+	
+	try {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+		
+		String line = reader.readLine();
+		//while(line!= null)
+		{
+			line = reader.readLine();
+			String mots []  = line.split(SEPARATEUR);
+			for (int i = 0; i <= mots.length; i++) {
+	           // System.out.println(mots[i]); verifier // 
+	             nomArticle = mots[0];
+	             description = mots[1];
+	             prixAchat = Double.parseDouble(mots[2]);
+	             prixVente = Double.parseDouble(mots[3]);
+	             promo = Integer.parseInt(mots[4]);
+	             stock1 = Integer.parseInt(mots[5]);
+	             stock2 = Integer.parseInt(mots[6]);
+	            //System.out.println(nomArticle+description+ prixAchat+  prixVente+  promo+stock);
+	        
+		Magasin.articles.put(new Article(nomArticle, description,  prixAchat,  prixVente,  promo,stock1),stock2);// permet d'incrémenter chaque ligne sinon on boucle sur la premiere// 
+		}
+		}
+		reader.close(); // fermer le fichier //
+	}catch(IOException e) { // attraper l'exeption //
+		e.printStackTrace(); 
+	}
 	
 	}
+
+	
+	}
+
