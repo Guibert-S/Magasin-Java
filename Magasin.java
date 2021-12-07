@@ -24,11 +24,11 @@ public class Magasin extends Client {
 		int promo = 0 ;
 		int stock = 0 ; 
 		String description = null ;
-		while (nomArticle == null || prixAchat ==0 || prixVente ==0 || description == null || promo ==0 ) {
+		while (nomArticle == null || description == null || prixAchat ==0 || prixVente ==0  || promo ==0 || stock ==0) {
 			
 			System.out.print("Nom de l'article :\n" );
 			nomArticle = objet.nextLine(); // String // 
-			
+			nomArticle =objet.nextLine();
 			System.out.print("Description de l'article :\n" );
 			description = objet.nextLine(); // String // 
 			 
@@ -46,7 +46,7 @@ public class Magasin extends Client {
 			
 			
 
-			objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
+			 
 		}
 		return new Article(nomArticle, description,  prixAchat,  prixVente,  promo,stock);
 	}
@@ -98,7 +98,7 @@ public class Magasin extends Client {
 	}
 		
 	
-	/// AFFICHAGE PARTIEL POUR LES CLIENTS  // 
+	// Affiage partiel d'un article// 
 	public static void afficherInventaire() {
 		 Iterator it = articles.entrySet().iterator();
 	        while (it.hasNext()) {
@@ -107,19 +107,23 @@ public class Magasin extends Client {
 	        }
 	}
 	
-	// AFFICHAGE COMPLET POUR LES EMPLOYES  // 
+	// Affiage complet d'un article // 
 	public static void afficherInventaireComplet() {
 		 Iterator it = articles.entrySet().iterator();
 	        while (it.hasNext()) {
 	            Map.Entry m = (Map.Entry) it.next();
-	            System.out.println("Article: "+((Article) m.getKey()).getNom()+"Description: "+((Article) m.getKey()).getDescription()+"Prix d'achat: "+((Article) m.getKey()).getPrixAchat()+"Prix de vente: "+((Article) m.getKey()).getPrixVente()+"Promo ?: "+((Article) m.getKey()).getPromo() +"Stock 1: "+ ((Article) m.getKey()).getStock()+"Stock 2: "+m.getValue());
+	            System.out.println("Article: "+((Article) m.getKey()).getNom()+" Description: "+((Article) m.getKey()).getDescription()+"  Prix d'achat: "+((Article) m.getKey()).getPrixAchat()+" Prix de vente: "+((Article) m.getKey()).getPrixVente()+" Promo ?: "+((Article) m.getKey()).getPromo() +" Stock 1: "+ ((Article) m.getKey()).getStock()+" Stock 2: "+m.getValue());
 	      
 	        }
 	}
 	
 	
-	
-	public void supArticle(Article a) {
-		articles.remove(a);
+	// Supprimer un article de la liste //
+	public static void supprimerArticle() {
+		FileDriver.afficherFichierSauvegarde(FileDriver.chemin ); 
+		System.out.println("Ecrivez le nom de l'article à supprimer");
+		System.out.println();
+		String supp = Magasin.objet.nextLine(); 
+		articles.remove(supp);
 	}
 }
