@@ -1,3 +1,10 @@
-{("bonnet","magnique bonnet en coton bio AMD",10,30, 1,1),1}
-{("ski","Paire de ski taille unique",40,230, 1,1),2}
-{("gants","Gants magenta trop beau je vous jure",10,20, 1,1),3}
+bonnet,magnique bonnet en coton bio AMD,10.0,30.0,1,5,100
+ski,Paire de ski taille unique,40.0,230.0,1,1,100
+gants,Gants magenta trop beau je vous jure,10.0,20.0,1,2,100
+CafÃ©,super bon,10.0,20.0,0,0,100
+Augustin,magnifique,1.0,2.0,0,0,100
+parapluie,magnique en lin bio,10.0,30.0,1,5,100
+,magnifique pamplemousse venant de France à la nage,5.0,10.0,0,0
+,boisson sucree,5.0,10.0,0,0
+coca,boisson,5.0,10.0,0,0
+coca,aa,1.0,2.0,0,0
