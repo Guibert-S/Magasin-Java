@@ -4,14 +4,9 @@ public class MainApp {
 	public static void main (String[] args) {
 		
 		
-		Article a = Magasin.creationArticle();
-		Magasin.ajouterArticle(a);
-		Magasin.afficherInventaire() ;
-		FileDriver.Sauvegarder(FileDriver.chemin , a);
-		 
-		
-		
-	
+		System.out.println(Magasin.articles);
+		FileDriver.chargerFichierSauvegarder(FileDriver.chemin);
+		System.out.println(Magasin.articles);
 		
 		menuSelection(); // appel du menu //
 	
@@ -26,28 +21,38 @@ public class MainApp {
 			System.out.println( "------ Séléction Menu ------" );
 			
 			System.out.println( " Option 1 : Ajouter un article" );
-			System.out.println( " Option 2 : Afficher Inventaire" );
+			System.out.println( " Option 2 : Supprimer un article" );
 			System.out.println( " Option 3 : " );
 			System.out.println( " Option 4 : " );
-			System.out.println( " Option 5 : " );
+			System.out.println( " Option 5 : Afficher Inventaire" );
 			System.out.println( " Option 10 : Quitter" );
-			
 			int choix = Magasin.objet.nextInt(); 
 			
 			if (choix ==1){
 				System.out.println( " Vous avez séléctionner 1 :  Ajouter un article" );
+				System.out.println();
 				Article a = Magasin.creationArticle();
 				Magasin.ajouterArticle(a);
+
+				Magasin.afficherInventaire() ;
 				FileDriver.Sauvegarder(FileDriver.chemin , a);
+				System.out.println();
 			}
 			
 			if (choix ==2){
-				System.out.println( " Vous avez séléctionner 2 : Afficher Inventaire ");
-				FileDriver.afficherFichierSauvegarde(FileDriver.chemin );  // Chargement des données du fichier txt //
+				System.out.println( " Vous avez séléctionner 2 : Supprimer un Article");
+				FileDriver.chargerFichierSauvegarder(FileDriver.chemin);
+				Magasin.supprimerArticle();
+				//FileDriver.Sauvegarder(FileDriver.chemin);
+	
+				
+				
+				System.out.println();
 			}
 			
 			if (choix ==3){
-				System.out.println( " Vous avez séléctionner 3 : ");
+				System.out.println( " Vous avez séléctionner 3 :  ");
+				
 			}
 			
 			if (choix ==4){
@@ -55,7 +60,8 @@ public class MainApp {
 			}
 			
 			if (choix ==5){
-				System.out.println( " Vous avez séléctionner 5 : ");
+				System.out.println( " Vous avez séléctionner 5 : Afficher Inventaire  ");
+				FileDriver.afficherFichierSauvegarde(FileDriver.chemin );  // Chargement des données du fichier txt //
 			}
 			
 			if (choix ==10){
@@ -68,4 +74,3 @@ public class MainApp {
 		}	
 	}
 }
-
