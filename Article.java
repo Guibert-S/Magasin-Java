@@ -1,66 +1,73 @@
 
 
+import java.util.Scanner;
+
 public class Article {
-	private String nom; // nom de l'article //
-	private double prixAchat; // prix d'achat //
-	private double prixVente;  // prix de vente  //
-	private int stock ;    // nombre d'article en stock  //
-	private int promo ;  // promotion de l'article en cours //
-	private String description ; 
+	private String nom;
+	private double prixAchat;
+	private double prixVente;
+	
 
 
 // Constructeur //
 
 
-	public Article(String nom,String description, double prixAchat, double prixVente, int promo,int stock) {
+	public Article(String nom, double prixAchat, double prixVente) {
 		this.nom =nom;
 		this.prixAchat =prixAchat ;
 		this.prixVente=prixVente;
-		this.stock =0; 
-		this.description = description ;
-		this.promo = 0;
+		
 	}
 
-// Méthodes //
-	
-	public String getNom() {return nom;}
+	public Article() {
+		Scanner objet = new Scanner (System.in);
+		System.out.print("Nom de l'article :\n" );
+		nom = objet.nextLine(); // String // 
+			
+		System.out.print("Prix d'achat de l'article :\n" );
+		prixAchat= objet.nextDouble();
+			
+		System.out.print("Prix  de vente de l'article  :\n" );
+		prixVente = objet.nextDouble();
+		objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
+			
+		
+	}
+	public String getNom() {
+		return nom;
+	}
 
 
-	public void setNom(String nom)  { 	this.nom = nom;}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
 
-	public double getPrixAchat() {	return prixAchat;}
+	public double getPrixAchat() {
+		return prixAchat;
+	}
 
 
-	public void setPrixAchat(double prixAchat) {	this.prixAchat = prixAchat;}
+	public void setPrixAchat(double prixAchat) {
+		this.prixAchat = prixAchat;
+	}
 
 
-	public double getPrixVente() {	return prixVente;}
+	public double getPrixVente() {
+		return prixVente;
+	}
 
 
-	public void setPrixVente(double prixVente) {	this.prixVente = prixVente;}
+	public void setPrixVente(double prixVente) {
+		this.prixVente = prixVente;
+	}
 
-
-	public int getStock() {return stock;}
-
-	
-	public void setStock(int stock) {this.stock = stock;}
-	
-	
-	public String getDescription() {return description;}
-
-
-	public void setDescription(String description) {this.description = description;}
-
-	public int getPromo() {return promo;}
-
-
-	public void setPromo(int promo) {	this.promo = promo;}
-	
-	
+	public void afficherArticle() {
+		System.out.println("Nom article: "+this.nom+"Prix d'achat: "+this.prixAchat+"Prix de vente: "+this.prixVente);
+	}
 	
 	
 }
 
 
-}
+
