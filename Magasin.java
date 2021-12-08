@@ -17,26 +17,6 @@ public class Magasin {
 	
 	// ajout d'article et saisie controle avec la boucle while //
 	
-	public static Article creationArticle() {
-		String nomArticle = null;
-		double prixAchat = 0;
-		double prixVente = 0;
-		
-		while (nomArticle == null || prixAchat ==0 || prixVente ==0) {
-			
-			System.out.print("Nom de l'article :\n" );
-			nomArticle = objet.nextLine(); // String // 
-			
-			System.out.print("Prix d'achat de l'article :\n" );
-			prixAchat= objet.nextDouble();
-			
-			System.out.print("Prix  de vente de l'article  :\n" );
-			prixVente = objet.nextDouble();
-			objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
-			
-		}
-		return new Article(nomArticle,prixAchat,prixVente);
-	}
 	
 	public Article traduction(String s) {
 		Iterator it=articles.entrySet().iterator();
@@ -65,19 +45,17 @@ public class Magasin {
 		employes.remove(e); // qaund on tombe sur l'employe à supprumer, on le supprime de l'array.		
 	}
 	// Ajouter l'article à la liste/array/dictionnaire //
-	public void afficherArticle(Article a) {
-		System.out.println("Nom article: "+a.getNom()+"Prix d'achat: "+a.getPrixAchat()+"Prix de vente: "+a.getPrixVente());
-	}
+	
 	public static void ajouterArticle(Article a) {
 		System.out.println("Quelle est le stock de votre article ?");
 		int c=objet.nextInt();
 		articles.put(a, c);
 	}
 	
-	public void ticket(Article s) {
+	
 		
 		
-	}
+	
 	public void vendre(Client c,Article a) {
 		int d=reduction.get(c);
 		if(c.getArgent()<a.getPrixVente()) {
@@ -87,14 +65,14 @@ public class Magasin {
 		else {
 			if(d>=5){// si le client a fait plus de 5 achats dans le magasin alors on applique une reduction de 20 %
 				c.setArgent(c.getArgent() - a.getPrixVente()*0.8);
-				this.revenu+=a.getPrixVente()*0.8;
+				revenu+=a.getPrixVente()*0.8;
 				reduction.put(c, d+1);
 				int b=articles.get(a); // on recupere l'int , le stock de l'article
 				articles.put(a, b-1); // diminue le stock de 1
 			}
 			else {
 				c.setArgent(c.getArgent() - a.getPrixVente());
-				this.revenu+=a.getPrixVente();
+				revenu+=a.getPrixVente();
 				reduction.put(c, d+1);
 				int b=articles.get(a); // on recupere l'int , le stock de l'article
 				articles.put(a, b-1); // diminue le stock de 1
@@ -132,5 +110,4 @@ public class Magasin {
 		return this.revenu;
 	}
 	
-}
-	
+}	
