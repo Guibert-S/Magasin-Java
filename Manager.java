@@ -1,7 +1,5 @@
 
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Set;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -61,11 +59,11 @@ public class Manager extends Employe {
  			
  		}
  		if(equipe1.size()<6){
- 			equipe1.add(new Menage(nom, prenom, emploi, salaire));
-        }
-        else{
-            throw new IllegalArgumentException("plus de place dans l'equipe menage");
-        }
+ 			equipe1.add(new Menage(nom, prenom, Poste.Menage, salaire));
+       	 	}
+       		else{
+			throw new IllegalArgumentException("plus de place dans l'equipe menage");
+		}
  	}
  	
  	public static void EmbaucherVendeur() {
@@ -89,15 +87,15 @@ public class Manager extends Employe {
  		}
  		if(equipe2.size()<6){
  			equipe2.add(new Vendeur(nom, prenom, Poste.Vendeur, salaire, nbrvente ));
-        }
-        else{
-            throw new IllegalArgumentException("plus de place dans l'equipe vendeur");
-        }
+       		}
+        	else{
+           	 throw new IllegalArgumentException("plus de place dans l'equipe vendeur");
+       		}
  	}
  	
 
  	public static void main (String[] args) {
- 		Employe chef = new Manager("Quentin", "bariere", Poste.Manager, 300);
+ 		Employe chef = new Manager("Quentin", "Barriere", Poste.Manager, 300);
  		menuEmploye(); // Appel du menu //
  		
  	}
