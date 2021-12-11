@@ -1,5 +1,4 @@
 
-
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -37,15 +36,16 @@ public class Manager extends Employe {
         }
     }
     //scanner pour gerer les employé
- 	static Scanner personne = new Scanner(System.in);
+	static Scanner personne = new Scanner(System.in);
 	
  	public static void EmbaucherMenage() {
+ 		
  		String nom = null;
  		String prenom = null;
  		int salaire = 0;
  		
  		while (nom == null || prenom ==null || salaire ==0 ) {
- 			
+ 			personne.nextLine();
  			System.out.print("Nom de l'employé :\n" );
  			nom = personne.nextLine(); // String // 
  			
@@ -54,8 +54,6 @@ public class Manager extends Employe {
  			
  			System.out.print(" Salaire ?  :\n" );
  			salaire = personne.nextInt();
- 		
- 			personne.nextLine() ; // 
  			
  		}
  		if(equipe1.size()<6){
@@ -73,6 +71,7 @@ public class Manager extends Employe {
  		int nbrvente=0;
  		
  		while (nom == null || prenom ==null || salaire ==0 ) {
+ 			personne.nextLine();
  			System.out.print("Nom de l'employé :\n" );
  			nom = personne.nextLine(); // String // 
  			
@@ -116,9 +115,10 @@ public class Manager extends Employe {
 			int choix = Manager.personne.nextInt();
 		
 			if (choix ==1) {
-			
 				System.out.println( " Vous avez séléctionner 1 :  Ajouter un employé menage " );
 				Manager.EmbaucherMenage(); 
+	
+				
 			}
 		
 			if (choix ==2){
