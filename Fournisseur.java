@@ -3,13 +3,16 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 
-
-public class Fournisseur {// créer differents types de fourniseurs: articles de ski, accessoires, boissons, nourritures
+/** classe pour créer differents types de fournisseurs: articles de ski, accessoires, boissons, nourritures */
+public class Fournisseur {
 	// du coup, 4 fournissuers avec comme attributs le nom, la liste d'articles qu'ils vendent, avec pour faciliter le stock ils peuvet en produire autant qu'on veut(sinon creation de tuples et plus galere) 
 	
 	private String nomFourni;
 	private ArrayList<Tuple<Article,Integer>> artfourni=new ArrayList <Tuple<Article,Integer>>();;
 	
+	/** getter pour donner le nom du fourni
+	 * @return le nom du fournisseur 
+	 */
 	public String getNomFourni() {
 		return this.nomFourni;
 	}
@@ -49,6 +52,9 @@ public class Fournisseur {// créer differents types de fourniseurs: articles de
 		}
 		
 	}
+	
+	/** methode pour afficher le nom du fournisseur ainsi que les articles qu'il vend et la quantité dont il dispose
+	 */
 	public void afficherProdFour() {
 		System.out.println("Nom du fournisseur: "+nomFourni);
 		Iterator<Tuple<Article,Integer>> it=artfourni.iterator();
@@ -64,6 +70,9 @@ public class Fournisseur {// créer differents types de fourniseurs: articles de
 		
 	}
 	
+	/** methode pour diminuer le stock d'un article chez le fournisseur
+	 * @param article dont on veut diminuer le stock et x la quantite à enlever du stock
+	 */
 	public void diminuerDispo(Article a,int x) {
 		Iterator<Tuple<Article,Integer>> it=artfourni.iterator();
 		while(it.hasNext()) {
@@ -72,12 +81,17 @@ public class Fournisseur {// créer differents types de fourniseurs: articles de
 				t.setT2(t.getT2()-x);
 			}
 		}
-
-		
 	}
+	
+	/** getter pour donner l'article et sa quantité 
+	 * @return ... a completer 
+	 */
 	public ArrayList<Tuple<Article, Integer>> getTuple() {
 		return artfourni;
 	}
+	
+	/** methode pour tester
+	 */
 	public static void main(String[] args) {
 		ArrayList <Article> a1=new ArrayList<Article>();
 		Article a=new Article("Ski",200,400,"P");
