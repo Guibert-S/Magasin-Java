@@ -90,8 +90,6 @@ public class Fournisseur {
 		return artfourni;
 	}
 	
-	/** methode pour tester
-	 */
 	public static void main(String[] args) {
 		ArrayList <Article> a1=new ArrayList<Article>();
 		Article a=new Article("Ski",200,400,"P");
