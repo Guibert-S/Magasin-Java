@@ -5,16 +5,20 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
+/** classe qui fait fonctionner le magasin*/
+
 public class Magasin {
 	private int jour;
 	private String nom;
 	private static double revenu;
 	private static double charges;
-	// nombre d'articles dans le magasin //
-	private static Map<Article,Integer> articles = new HashMap<Article,Integer>();// dictionnaire reliant les articles avec leur stock 
-	private static ArrayList <Client> clients = new ArrayList<Client>();// dictionnaire reliant le client avec leur nombre d'achats 
+	/** dictionnaire reliant les articles avec leur stock */
+	private static Map<Article,Integer> articles = new HashMap<Article,Integer>();
+	/** dictionnaire reliant le client avec leur nombre d'achats */
+	private static ArrayList <Client> clients = new ArrayList<Client>();
 	static Scanner objet = new Scanner (System.in);
-	private ArrayList <Vendeur> employes=new ArrayList <Vendeur>();// liste dynamique de vendeur
+	/** liste dynamique de vendeur */
+	private ArrayList <Vendeur> employes=new ArrayList <Vendeur>(); 
 	
 	
 	public Magasin(String nom,double charges) {//initialisation du magasin avec les charges. 
@@ -24,8 +28,10 @@ public class Magasin {
 		this.charges=charges;
 	}
 	
-	// ajout d'article et saisie controle avec la boucle while //
-	
+	/** methode pour verifier qu'un article est bien contenu dans les articles 
+	 * @param s le nom de l'article et sa cateorie
+	 * @return true si le nom de l'article est bien present
+	 */
 	public boolean contenu(String s,String categorie) {
 		Iterator it=getArticles().entrySet().iterator();
 		while(it.hasNext()) {
@@ -37,8 +43,11 @@ public class Magasin {
 		return false;
 	}
 		
-	
-	public Article traduction(String s,String categorie) {// on prend le nom d'un article et on renvoie le type Article correspondant dans l'inventaire
+	/** methode pour donner le type de l'article correspondant dans l'inventaire
+	 * @param s le nom de l'article et sa cateorie
+	 * @return le type Article correspondant dans l'inventaire
+	 */
+	public Article traduction(String s,String categorie) {
 		Iterator<Entry<Article, Integer>> it=getArticles().entrySet().iterator();
 		while(it.hasNext()) {
 			Map.Entry m=(Map.Entry) it.next();
@@ -49,9 +58,16 @@ public class Magasin {
 		return null;
 		
 	}
+	
+	/** methode pour ajouter des employes des vendeurs en particuliers
+	 * @param un vendeur a ajouter 
+	 */
 	public void ajoutEmploye(Vendeur e) {
 		employes.add(e);
 	}
+	
+	/** methode pour afficher le nom et prenom des employés vendeur 
+	 */
 	public void afficherEmploye() {
 		Iterator<Vendeur> it =employes.iterator();
 		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
@@ -59,25 +75,32 @@ public class Magasin {
 			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
 		}
 	}
-	// Ajouter l'article à la liste/array/dictionnaire //
 	
+	/** methode pour ajouter l'article à la liste/array/dictionnaire
+	 * @param article a ajouter 
+	 */
 	public void ajouterArticle(Article a) { // on demande le stock au manager 
 		System.out.println("Quelle est le stock de votre article "+a.getNom()+"?");
 		int c=objet.nextInt();
 		getArticles().put(a, c);
 	}
 	
-	public void AjouterArticlebis(Article a, int stock) {//on connait le stock en amont, si l'article n'existe pas, on l'ajoute
+	/** methode pour ajouter un article et si on connait le stock en amont, si l'article n'existe pas on l'ajoute, sinon on ajoute le stock
+	 * @param l'article et son stock
+	 */
+	public void AjouterArticlebis(Article a, int stock) {
 		if( getArticles().containsKey(a)==true) {
 			int b=getArticles().get(a);
 			getArticles().replace(a,b,b+stock);
 		}
 		else {
 			getArticles().put(a,stock);
-		}
-		
-		
+		}	
 	}
+	
+	 /** methode pour qu'un vendeur vende un article a un client
+	 * @param l'article, le client et le vendeur qui effectue la vente
+	 */
 	public void vendre(Client c,Article a,Vendeur v) {
 		if(!(clients.contains(c))) {
 			clients.add(c);
@@ -105,20 +128,26 @@ public class Magasin {
 				int b=getArticles().get(a); // on recupere l'int , le stock de l'article
 				getArticles().replace(a, b-1); // diminue le stock de 1
 			}
-	}
+		}
 		int r=v.getVente();
 		v.setVente(r+1);
-}
-	public void filtre(String s){//filtre les produits en focntion de leur categorie, premium etc..
+	}
+	/** methode pour filtrer les produits en fonction de leur categorie
+	* @param categorie de l'article : choix entre E, C ou P
+	*/
+	public void filtre(String s){
 		Iterator it = getArticles().entrySet().iterator();
-        while (it.hasNext()) {
-        	Map.Entry m=(Map.Entry) it.next();
-        	if(((Article) m.getKey()).getCategorie()==s) {
-        		((Article) m.getKey()).afficherArticle();
-        	}
-;        }
+       	 	while (it.hasNext()) {
+        		Map.Entry m=(Map.Entry) it.next();
+        		if(((Article) m.getKey()).getCategorie()==s) {
+        			((Article) m.getKey()).afficherArticle();
+        		}
+	       	}
 	}
 	
+	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
+	* @param client a conseiller
+	*/
 	public void dirigerClients(Client t) {// on va conseiller le client en fonction de son budget. 3 cas: premium, confort, entree de gamme 
 		if(t.getArgent()>1000) {
 			filtre("P");
@@ -131,7 +160,8 @@ public class Magasin {
 		}
 	}
 	
-	// Verifier que tout s'affiche bien //
+	/** methode pour afficher les articles avec leurs categories et leurs stocks correspondant présent dans l'inventaire du magasin
+	*/
 	public void afficherInventaire() {
 		 Iterator it = getArticles().entrySet().iterator();
 	        while (it.hasNext()) {// has.Next, booleanqui indique s'il existe elements dans la collection cf cours 7
@@ -139,12 +169,18 @@ public class Magasin {
 	            System.out.println("Article: "+((Article) m.getKey()).getNom()+" Categorie:"+((Article) m.getKey()).getCategorie()+", Stock: "+m.getValue());
 	        }
 	}
+	
+	/** methode pour supprimer un article
+	* @param le nom de l'article et sa categorie
+	*/
 	public void supArticle(String s,String categorie) {
 		Article a=traduction (s,categorie);
 		getArticles().remove(a);
 	}
 	
-	public static void afficherClient() { // Afficher la liste des clients 
+	/** methode pour afficher la liste des clients
+	*/
+	public static void afficherClient() { 
 		 Iterator <Client>it = clients.iterator();
 	        while (it.hasNext()) {
 	            Client m= it.next();
