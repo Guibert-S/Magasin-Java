@@ -1,4 +1,4 @@
-/** classe qui crée un vendeur qui est un employé */
+/** classe qui crée un employé menage */
 
 public class Menage extends Employe {
 	public Menage(String nom,String prenom,Poste emploi,int salaire) {
@@ -15,7 +15,7 @@ public class Menage extends Employe {
 		
 	}
 	
-	/** methode pour afficher le nom, le prenom, le poste et le salaire du vendeur 
+	/** methode pour afficher le nom, le prenom, le poste et le salaire de l'employé menage 
 	 */
 	public void affichage () {
 		String str =String.valueOf(this.salaire);
