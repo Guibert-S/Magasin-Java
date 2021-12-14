@@ -99,8 +99,8 @@ public class Magasin {
 	}
 	
 	 /** methode pour qu'un vendeur vende un article a un client
-	 * @param l'article, le client et le vendeur qui effectue la vente
-	 */
+	  * @param l'article, le client et le vendeur qui effectue la vente
+	  */
 	public void vendre(Client c,Article a,Vendeur v) {
 		if(!(clients.contains(c))) {
 			clients.add(c);
@@ -133,8 +133,8 @@ public class Magasin {
 		v.setVente(r+1);
 	}
 	/** methode pour filtrer les produits en fonction de leur categorie
-	* @param categorie de l'article : choix entre E, C ou P
-	*/
+ 	 * @param categorie de l'article : choix entre E, C ou P
+	 */
 	public void filtre(String s){
 		Iterator it = getArticles().entrySet().iterator();
        	 	while (it.hasNext()) {
@@ -146,8 +146,8 @@ public class Magasin {
 	}
 	
 	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
-	* @param client a conseiller
-	*/
+	 * @param client a conseiller
+	 */
 	public void dirigerClients(Client t) {// on va conseiller le client en fonction de son budget. 3 cas: premium, confort, entree de gamme 
 		if(t.getArgent()>1000) {
 			filtre("P");
@@ -161,7 +161,7 @@ public class Magasin {
 	}
 	
 	/** methode pour afficher les articles avec leurs categories et leurs stocks correspondant présent dans l'inventaire du magasin
-	*/
+	 */
 	public void afficherInventaire() {
 		 Iterator it = getArticles().entrySet().iterator();
 	        while (it.hasNext()) {// has.Next, booleanqui indique s'il existe elements dans la collection cf cours 7
@@ -171,8 +171,8 @@ public class Magasin {
 	}
 	
 	/** methode pour supprimer un article
-	* @param le nom de l'article et sa categorie
-	*/
+	 * @param le nom de l'article et sa categorie
+	 */
 	public void supArticle(String s,String categorie) {
 		Article a=traduction (s,categorie);
 		getArticles().remove(a);
@@ -181,22 +181,29 @@ public class Magasin {
 	/** methode pour afficher la liste des clients
 	*/
 	public static void afficherClient() { 
-		 Iterator <Client>it = clients.iterator();
+		Iterator <Client>it = clients.iterator();
 	        while (it.hasNext()) {
 	            Client m= it.next();
 	            System.out.println("Nom: "+ m.getNom()+"Prenom "+ m.getPrenom()+ "Nombre d'achat "+m.getAchat());
 	        }
 	}
-	
+
+	/** methode pour afficher les benefices du magasin
+	 */
 	public void AfficherRevenu() {
 		System.out.println(this.getRevenu());
 	}
 	
+	/** getter pour retourner le revenu
+	 * @return double le revenu du magasin
+	 */
 	public double GetRevenu() {
 		return this.getRevenu();
 	}
 	
-	public void finMois() {// permet de simuler le paiement des charges et le paiement des salaires (charges fixes)
+	/** methode pour simuler le paiement des charges et le paiement des salaires (charges fixes)
+	 */
+	public void finMois() {
 		if(jour==30) {
 			setRevenu(getRevenu() - charges);
 			for(Vendeur i:employes) {
@@ -208,6 +215,10 @@ public class Magasin {
 		}
 		
 	}
+	
+	/** methode pour acheter au fournisseur un article 
+ 	 * @param le fournisseur a qui on veut acheter l'article, le nom de l'article, la categorie de l'article et la quantité que le magasin veut acheter 
+	 */
 	public void acheter(Fournisseur t,String nom,String categorie,int quanti) {
 		Article a=this.traduction(nom,categorie);
 		revenu-=quanti*a.getPrixAchat();
@@ -218,6 +229,9 @@ public class Magasin {
 		//penser à diminuer le stock
 	}
 	
+	/** methode pour acheter des articles a un fournisseur
+ 	 * @param fournisseur a qui on achete l'article 
+	 */
 	public void acheterbis(Fournisseur t) {
 		System.out.println("Quels produits voulez vous acheter ?");
 		t.afficherProdFour();
@@ -268,19 +282,28 @@ public class Magasin {
 		
 	}
 
+	/** getter pour donner le dictionnaire article ?
+	 */
 	public static Map<Article,Integer> getArticles() {
 		return articles;
 	}
 
-	
+	/** setter pour recuperer le dictionnaire article ?
+	 * @param l'article
+	 */
 	public static void setArticles(Map<Article,Integer> articles) {
 		Magasin.articles = articles;
 	}
-
+	
+	/** getter pour donner le revenu du magasin
+	 */
 	public static double getRevenu() {
 		return revenu;
 	}
 
+	/** setter pour recuperer le revenu du magasin ?
+	 * @param le revenu du magasin
+	 */
 	public static void setRevenu(double revenu) {
 		Magasin.revenu = revenu;
 	}
