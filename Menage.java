@@ -2,10 +2,8 @@
 
 public class Menage extends Employe {
 	public Menage(String nom,String prenom,Poste emploi,int salaire) {
-		this.nom=nom;
-		this.prenom=prenom;
-		this.emploi=emploi;
-		this.salaire=salaire;
+		super(nom, prenom, emploi);
+		this.salaire = 1200;
 	}
 	
 	/** methode pour recuperer le salaire 
@@ -21,7 +19,7 @@ public class Menage extends Employe {
 		String str =String.valueOf(this.salaire);
 		
 		String str3=String.valueOf(this.emploi);
-		System.out.println("Nom: " +this.nom+"Prenom: "+this.prenom+"Nombre de Ventes: "+"Poste: "+str3+"Bourse: "+str);
+		System.out.println("Nom: " +this.nom+"Prenom: "+this.prenom+"Poste: "+str3+"Bourse: "+str);
 	}
 
 }
