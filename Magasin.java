@@ -59,22 +59,6 @@ public class Magasin {
 		
 	}
 	
-	/** methode pour ajouter des employes des vendeurs en particuliers
-	 * @param un vendeur a ajouter 
-	 */
-	public void ajoutEmploye(Vendeur e) {
-		employes.add(e);
-	}
-	
-	/** methode pour afficher le nom et prenom des employés vendeur 
-	 */
-	public void afficherEmploye() {
-		Iterator<Vendeur> it =employes.iterator();
-		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
-			Vendeur a=it.next();
-			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
-		}
-	}
 	
 	/** methode pour ajouter l'article à la liste/array/dictionnaire
 	 * @param article a ajouter 
