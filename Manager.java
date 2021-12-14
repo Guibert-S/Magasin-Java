@@ -17,10 +17,44 @@ public class Manager extends Employe {
 	}
 	
 	
+	/** methode pour ajouter des employes des vendeurs en particuliers
+	 * @param le vendeur a ajouter 
+	 */
+	public void ajoutEmployeVendeur(Vendeur e) {
+		employes.add(e);
+	}
+	
+	/** methode pour afficher le nom et prenom des employés vendeur 
+	 */
+	public void afficherEmploye() {
+		Iterator<Vendeur> it =employes.iterator();
+		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
+			Vendeur a=it.next();
+			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
+		}
+	}
+	
+	/** methode pour ajouter des employés menage 
+	 * @param l'employe menage a ajouter 
+	 */
+	public void ajoutEmployeMenage(Menage m) {
+		employes.add(m);
+	}
+	
+	/** methode pour afficher le nom et prenom des employés menage
+	 */
+	public void afficherEmployeMenage() {
+		Iterator<Menage> it =employes.iterator();
+		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
+			Menage a=it.next();
+			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
+		}
+	}
+	
 	 //licencier si il reste au moins deux personnes
-    public void licencierMenage(Menage menage){
-    	if (equipe1.size()>1) {
-    		equipe1.remove(menage);
+        public void licencierMenage(Menage menage){
+		if (equipe1.size()>1) {
+			equipe1.remove(menage);
     	}
     	else{
             throw new IllegalArgumentException("il ne reste que un employé dans l'equipe menage donc impossible de le licencier");
