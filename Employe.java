@@ -4,11 +4,10 @@ public abstract class Employe {
 	protected Poste emploi;
 	protected int salaire;
 	
-	public Employe(String nom, String prenom, Poste emploi,int salaire) {
+	public Employe(String nom, String prenom, Poste emploi) {
 		this.nom=nom;
 		this.prenom=prenom;
 		this.emploi=emploi;
-		this.salaire=salaire;
 		
 		
 	}
@@ -18,8 +17,8 @@ public abstract class Employe {
 	
 	public void recevoirSalaire() {
 		
-	}
-	public void presentation() {
+		}
+	public void affichage() {
 		
 	}
 
