@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-/** un objet article dans le magasin
+/** classe pour creer un objet article dans le magasin
  */
 
 public class Article {
