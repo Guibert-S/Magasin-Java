@@ -1,13 +1,14 @@
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 
 public class FileDriver {
@@ -15,7 +16,9 @@ public class FileDriver {
 	 static String chemin = "C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt"; // variable global  je sais si c'est opti ? 
 	
 
-		// FONCTIONS  DE LECTURE ET D'ECRITURE // 
+	 /**fonction pour lire et afficher ce que contient le fichier texte 
+		 * @param String chemin du fichier texte ou variable contenant le chemin du fichier txt.
+		 */
 		
 	public static void afficherFichierSauvegarde(String chemin) { // chemin du fichier que l'on veut afficher //
 		
@@ -38,14 +41,20 @@ public class FileDriver {
 		}
 	
 	
-public static void Sauvegarder(String chemin, Article article) { // chemin du fichier ou l'on veut écrire //
+	/**fonction pour afficher ce que contient le fichier texte 
+	 * @param String chemin du fichier texte ou variable contenant le chemin du fichier txt.
+	 * @param Article nom de l'Article que l'on veut écrire dans le fichier texte pour le sauvegarder.
+	 */
+	
+	
+public static void ecrireDansFichier(String chemin, Article article) { // chemin du fichier ou l'on veut écrire //
 		
 		File file = new File(chemin);
 		
 		try {
 			FileWriter writer = new FileWriter(file,true); // argument True = surcharge constructeur qui permet de ne pas écraser les données existantes
 			BufferedWriter bw =  new BufferedWriter(writer);
-			bw.write(article.getNom()+','+article.getDescription()+','+article.getPrixAchat()+','+article.getPrixVente()+','+article.getPromo()+','+article.getStock()); // on converti article en string car la fonction prend uniquement des strings
+			bw.write(article.getNom()+','+article.getPrixAchat()+','+article.getPrixVente()+','+article.getCategorie()+Magasin.getArticles().get(article)); // on converti article en string car la fonction prend uniquement des strings
 			bw.newLine();
 			bw.close(); // fermer car sinon continue à lire le fichier //
 		} catch(IOException e) { // attraper les exeptions
@@ -54,19 +63,50 @@ public static void Sauvegarder(String chemin, Article article) { // chemin du fi
 		
 		}
 
+/**fonction pour afficher ce que contient le fichier texte 
+ * @param String chemin du fichier texte ou variable contenant le chemin du fichier txt.
+ * @param HashMap<Article,Integer>  nom du dictionnaire que l'on veut sauvegarder dans le fichier texte.
+ */
 
 
-public static void chargerFichierSauvegarder(String chemin) { // chemin du fichier que l'on veut afficher //
+public static void ecrireFichier(String chemin,Map<Article, Integer> map ) { // chemin du fichier ou l'on veut écrire //
+	
+	
+	File file = new File(chemin);
+	
+	for (Entry <Article,Integer> element : map.entrySet()) {
+		
+		
+	try {
+		FileWriter writer = new FileWriter(file,true); // argument True = surcharge constructeur qui permet de ne pas écraser les données existantes
+		BufferedWriter bw =  new BufferedWriter(writer);
+		bw.write(element.getKey().getNom()+','+element.getKey().getPrixAchat()+','+element.getKey().getPrixVente()+','+element.getKey().getCategorie()+','+element.getValue()); // on converti article en string car la fonction prend uniquement des strings
+		bw.newLine();
+		bw.close(); // fermer car sinon continue à lire le fichier //
+	} catch(IOException e) { // attraper les exeptions
+		e.printStackTrace(); 
+		}
+	
+	}
+	
+}
+
+
+
+/**fonction pour lire le fichier txt 
+ * @param String chemin du fichier texte ou variable contenant le chemin du fichier txt.
+ */
+
+
+public static void lireFichierSauvegarder(String chemin) { // chemin du fichier que l'on veut afficher //
 	
 	File file = new File(chemin);
 	final String SEPARATEUR= ",";
 	String nomArticle = null;
-	String description = null ;
+	String categorie = null ;
 	double prixAchat = 0;
 	double prixVente = 0;
-	int promo = 0 ;
-	int stock = 0 ; 
-	
+	int stock = 0;
 	
 	try {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
@@ -79,15 +119,13 @@ public static void chargerFichierSauvegarder(String chemin) { // chemin du fichi
 			for (int i = 0; i <= mots.length; i++) {
 	           // System.out.println(mots[i]); verifier // 
 	             nomArticle = mots[0];
-	             description = mots[1];
-	             prixAchat = Double.parseDouble(mots[2]);
-	             prixVente = Double.parseDouble(mots[3]);
-	             promo = Integer.parseInt(mots[4]);
-	             stock = Integer.parseInt(mots[5]);
+	             prixAchat = Double.parseDouble(mots[1]);
+	             prixVente = Double.parseDouble(mots[2]);
+	             categorie = mots[3];
+	             stock = Integer.parseInt(mots[4]);
 	            
-	            //System.out.println(nomArticle+description+ prixAchat+  prixVente+  promo+stock);
 	        
-		Magasin.articles.put(i,new Article(nomArticle, description,  prixAchat,  prixVente,  promo,stock));// permet d'incrémenter chaque ligne sinon on boucle sur la premiere// 
+		Magasin.getArticles().put(new Article(nomArticle,  prixAchat,  prixVente,categorie),stock);// permet d'incrémenter chaque ligne sinon on boucle sur la premiere// 
 		}
 		}
 		reader.close(); // fermer le fichier //
@@ -96,6 +134,13 @@ public static void chargerFichierSauvegarder(String chemin) { // chemin du fichi
 	}
 	
 	}
+
+
+public static void doublon(Map<Article, Integer> map ) {
+	
+	
+}
+
 
 /** methode pour afficher le menu dans la console 
  */
