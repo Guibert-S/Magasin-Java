@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Map.Entry;
 
 /** classe pour creer un manager qui est un employé qui peut embaucher et licencier */
 public class Manager extends Employe {
@@ -13,6 +15,8 @@ public class Manager extends Employe {
 		this.salaire=3000;
 		
 	}
+		
+	
 	/** methode pour ajouter des employes des vendeurs en particulier
 	 * @param le vendeur a ajouter 
 	 */
@@ -22,7 +26,7 @@ public class Manager extends Employe {
 	
 	/** methode pour afficher le nom et prenom des employés vendeur 
 	 */
-	public void afficherEmploye() {
+	public static void afficherEmployeVendeur() {
 		Iterator<Vendeur> it =vendeurs.iterator();
 		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
 			Vendeur a=it.next();
@@ -39,7 +43,7 @@ public class Manager extends Employe {
 	
 	/** methode pour afficher le nom et prenom des employés menage
 	 */
-	public void afficherEmployeMenage() {
+	public static void afficherEmployeMenage() {
 		Iterator<Menage> it =menages.iterator();
 		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
 			Menage a=it.next();
@@ -50,26 +54,28 @@ public class Manager extends Employe {
 	/** methode pour licencier des employés menage mais il doit en rester toujours 1
 	 * @param l'employe menage a licencier
 	 */
-    public static void licencierMenage(Menage menage){
-    	if (menages.size()>1) {
-    		menages.remove(menage);
+    public static void licencierMenage(){
+    	int i = menages.size();
+    	if (i>1) {
+    		menages.remove(i-1);
     		System.out.println("le dernier embauché est licencié ");
     	}
     	else{
-            throw new IllegalArgumentException("il ne reste que un employé dans l'equipe menage donc impossible de le licencier");
+            throw new IllegalArgumentException("il ne reste pas assez d'employé menage donc impossible de le licencier");
         }
     }
     
 	/** methode pour licencier des vendeurs mais il doit en rester toujours 1
 	 * @param le vendeur a licencier
 	 */
-    public static void licencierVendeur(Vendeur vendeur){
-    	if (vendeurs.size()>1) {
-    		vendeurs.remove(vendeur);
+    public static void licencierVendeur(){
+    	int i = vendeurs.size();
+    	if (i>1) {
+    		vendeurs.remove(i-1);
     		System.out.println("le dernier embauché est licencié ");
     	}
     	else{
-            throw new IllegalArgumentException("il ne reste que un vendeur donc impossible de le licencier");
+            throw new IllegalArgumentException("il ne reste pas assez de vendeur donc impossible de le licencier");
         }
     }
     //scanner pour gerer les employé
@@ -82,6 +88,7 @@ public class Manager extends Employe {
  		String prenom = null;
  		String emploi = null;
  		String string1="menage";
+ 		String string2="vendeur";
  		
 
  		System.out.print("Nom de l'employé :\n" );
@@ -92,13 +99,15 @@ public class Manager extends Employe {
  			
  		System.out.print("Emploi de l'employé : menage ou vendeur ?");
  		emploi = personne.nextLine();
+ 		
  			
- 		if( string1.equals(emploi)){ // le soucis doit etre la 
+ 		if( string1.equals(emploi)){ 
  			Menage m = new Menage(nom,prenom,Poste.Menage);
  			ajoutEmployeMenage(m);
+ 			System.out.println("vous avez ajouté un employé menage");
        	 }
  		
- 		if ( emploi == "vendeur") {   //  marche pas dans le main marque que le poste n'est pas dispo pareil pour menage
+ 		else if ( string2.equals(emploi)) {   
  			Vendeur v = new Vendeur(nom,prenom,Poste.Vendeur,0);
  			ajoutEmployeVendeur(v);
  			System.out.println("vous avez ajouté un vendeur");
@@ -113,30 +122,21 @@ public class Manager extends Employe {
  	/** methode pour licencier des employés
 	 */
  	public static void Licencier() {
- 		String nom = null;
- 		String prenom = null;
  		String emploi = null;
+ 		String string1="menage";
+ 		String string2="vendeur";
  		
- 		while (nom == null || prenom ==null || emploi == null) {
- 			System.out.print("Nom de l'employé :\n" );
- 			nom = personne2.nextLine(); // String // 
+ 		System.out.print("Emploi de l'employé : menage ou vendeur ?");
+ 		emploi = personne2.nextLine();
  			
- 			System.out.print("Prenom de l'employé :\n" );
- 			prenom = personne2.nextLine(); // String // 
- 			
- 			System.out.print("Emploi de l'employé : menage ou vendeur ?");
- 			emploi = personne2.nextLine();
- 			
- 			
- 		}
- 		if( emploi == "menage"){
- 			Menage m = new Menage(nom,prenom,Poste.Menage); // verifier que l'emplyer est bien dans menage ?
- 			licencierMenage(m);
+ 		if( string1.equals(emploi)){
+ 			licencierMenage();
+ 			System.out.println("vous avez licencié un employé menage");
        	 }
  		
- 		if ( emploi == "vendeur") {
- 			Vendeur v = new Vendeur(nom,prenom,Poste.Vendeur,0);  // pas sur que ca marche du coup vu que je sais pascombien va vendre le vendeur
- 			licencierVendeur(v);
+ 		else if ( string2.equals(emploi)) {
+ 			licencierVendeur();
+ 			System.out.println("vous avez licencié un vendeur");
  		}
        	else{
        		throw new IllegalArgumentException("le poste n'existe " + emploi +" n'existepas ");
@@ -150,3 +150,4 @@ public class Manager extends Employe {
  	}
  	
 }
+ 
