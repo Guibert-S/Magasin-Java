@@ -81,19 +81,19 @@ public class Manager extends Employe {
  		String nom = null;
  		String prenom = null;
  		String emploi = null;
+ 		String string1="menage";
  		
 
  		System.out.print("Nom de l'employé :\n" );
- 		nom = personne.nextLine(); // String // 
+ 		nom = personne.nextLine();  
  			
  		System.out.print("Prenom de l'employé :\n" );
- 		prenom = personne.nextLine(); // String // 
+ 		prenom = personne.nextLine(); 
  			
  		System.out.print("Emploi de l'employé : menage ou vendeur ?");
  		emploi = personne.nextLine();
  			
- 			
- 		if( emploi == "menage"){
+ 		if( string1.equals(emploi)){ // le soucis doit etre la 
  			Menage m = new Menage(nom,prenom,Poste.Menage);
  			ajoutEmployeMenage(m);
        	 }
