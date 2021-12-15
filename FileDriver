@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -96,5 +97,60 @@ public static void chargerFichierSauvegarder(String chemin) { // chemin du fichi
 	
 	}
 
+/** methode pour afficher le menu dans la console 
+ */
+
+public static void afficherMenu() {
+	System.out.println();
+	System.out.println( "------ \n Séléction Menu \n ------" );
 	
+	System.out.println( " Option 0 : Quitter" );
+	System.out.println( " Option 1 : Ajouter un article" );
+	System.out.println( " Option 2 : Supprimer un article" );
+	System.out.println( " Option 3 : Ajouter un employé " );
+	System.out.println( " Option 4 : Licencier un employé " );
+	System.out.println( " Option 5 : Afficher Inventaire" );
+	System.out.println( " Option 6 : ");
+}
+
+/** methode pour lancer le menu et naviguer dans le magasin 
+ */
+
+public static void lancerMenu() {
+	boolean menu = true;
+	do {
+		afficherMenu();
+		int choix = Magasin.objet.nextInt(); 
+		
+		switch(choix) {
+		
+		case(0):
+			System.out.println( " Bonne journée ! " );
+			menu = false;
+			break;
+		case(1):
+			// inserer fonction // ;
+			break;
+		case(2):
+			// inserer fonction // ;;
+			break;
+		case(3):
+			// inserer fonction // ;
+			break;
+		case(4):
+			// inserer fonction // ;
+			break;
+		case(5):
+			// inserer fonction // ;
+			break;
+		case(6):
+			// inserer fonction // ;
+			break;
+		default :
+			System.out.println( " Entrer une option valide ! " );}
+				}while(menu==true);
 	}
+
+	
+
+}
