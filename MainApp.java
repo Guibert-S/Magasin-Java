@@ -22,8 +22,8 @@ public class MainApp {
 			
 			System.out.println( " Option 1 : Ajouter un article" );
 			System.out.println( " Option 2 : Supprimer un article" );
-			System.out.println( " Option 3 : " );
-			System.out.println( " Option 4 : " );
+			System.out.println( " Option 3 : Ajouter un employé " );
+			System.out.println( " Option 4 : Licencier un employé " );
 			System.out.println( " Option 5 : Afficher Inventaire" );
 			System.out.println( " Option 10 : Quitter" );
 			int choix = Magasin.objet.nextInt(); 
@@ -51,12 +51,12 @@ public class MainApp {
 			}
 			
 			if (choix ==3){
-				System.out.println( " Vous avez séléctionner 3 :  ");
-				
-			}
+				System.out.println( " Vous avez séléctionner 3 :  Ajouter un employé ");
+				Manager.Embaucher();
 			
 			if (choix ==4){
-				System.out.println( " Vous avez séléctionner 4 : ");
+				System.out.println( " Vous avez séléctionner 4 : Licencier un employé ");
+				Manager.Licencier();
 			}
 			
 			if (choix ==5){
