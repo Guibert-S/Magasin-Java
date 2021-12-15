@@ -16,4 +16,7 @@ public class Tuple<T1,T2> {
 		this.t1 = t1;
 	}
 	
+	public void setT2(T2 t2) {
+		this.t2 = t2;
+	}
 }
