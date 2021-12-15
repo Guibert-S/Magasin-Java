@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.Map.Entry;
 
 /** classe pour creer un manager qui est un employé qui peut embaucher et licencier */
 public class Manager extends Employe {
@@ -34,6 +32,34 @@ public class Manager extends Employe {
 		}
 	}
 	
+	/** methode pour licencier des vendeurs mais il doit en rester toujours 1
+	 * @param le vendeur a licencier
+	 */
+    public static void licencierVendeur(){
+    	int i = vendeurs.size();
+    	if (i>1) {
+    		vendeurs.remove(i-1);
+    		System.out.println("le dernier embauché est licencié ");
+    	}
+    	else{
+            throw new IllegalArgumentException("il ne reste pas assez de vendeur donc impossible de licencier");
+        }
+    }
+	
+    /** methode pour verifier que le vendeur n'est pas deja dans l'entreprise
+   	 * @param le vendeur a verifier 
+   	 * @return true si le vendeur n'existe pas deja dans la base
+   	 */
+   	public static boolean pasDoublonVendeur(Vendeur v) {
+   		for (int i = 0; i<vendeurs.size();i++) {
+   			Vendeur a = vendeurs.get(i);
+   			if (v.getNom().equals(a.getNom()) || v.getPrenom().equals(a.getPrenom())) {
+   				return false;
+   			}
+   		}
+   		return true;
+   	}
+   	
 	/** methode pour ajouter des employés menage 
 	 * @param l'employe menage a ajouter 
 	 */
@@ -61,23 +87,25 @@ public class Manager extends Employe {
     		System.out.println("le dernier embauché est licencié ");
     	}
     	else{
-            throw new IllegalArgumentException("il ne reste pas assez d'employé menage donc impossible de le licencier");
+            throw new IllegalArgumentException("il ne reste pas assez d'employé menage donc impossible de licencier");
         }
     }
     
-	/** methode pour licencier des vendeurs mais il doit en rester toujours 1
-	 * @param le vendeur a licencier
-	 */
-    public static void licencierVendeur(){
-    	int i = vendeurs.size();
-    	if (i>1) {
-    		vendeurs.remove(i-1);
-    		System.out.println("le dernier embauché est licencié ");
-    	}
-    	else{
-            throw new IllegalArgumentException("il ne reste pas assez de vendeur donc impossible de le licencier");
-        }
-    }
+    /** methode pour verifier que l'employé menage n'est pas deja dans l'entreprise
+   	 * @param l'employé menage a verifier 
+   	 * @return true si l'employé n'existe pas deja dans la base
+   	 */
+   	public static boolean pasDoublonMenage(Menage m) {
+   		for (int i = 0; i<menages.size();i++) {
+   			Menage a = menages.get(i);
+   			if (m.getNom().equals(a.getNom()) || m.getPrenom().equals(a.getPrenom())) {
+   				return false;
+   			}
+   		}
+   		return true;
+   	}
+   	
+    
     //scanner pour gerer les employé
     static Scanner personne = new Scanner(System.in);
 
@@ -103,14 +131,24 @@ public class Manager extends Employe {
  			
  		if( string1.equals(emploi)){ 
  			Menage m = new Menage(nom,prenom,Poste.Menage);
- 			ajoutEmployeMenage(m);
- 			System.out.println("vous avez ajouté un employé menage");
+			if (pasDoublonMenage(m)) {
+					ajoutEmployeMenage(m);
+					System.out.println("vous avez ajouté un employé menage");
+			}
+			else {
+				System.out.println("l'employé menage "+nom+" "+prenom+" existe déjà");
+			}
        	 }
  		
  		else if ( string2.equals(emploi)) {   
  			Vendeur v = new Vendeur(nom,prenom,Poste.Vendeur,0);
- 			ajoutEmployeVendeur(v);
- 			System.out.println("vous avez ajouté un vendeur");
+ 			if (pasDoublonVendeur(v)) {
+ 				ajoutEmployeVendeur(v);
+ 				System.out.println("vous avez ajouté un vendeur");
+ 			}
+ 			else {
+				System.out.println("le vendeur "+nom+" "+prenom+" existe déjà");
+			}
  		}
        	else{
        		throw new IllegalArgumentException("le poste " + emploi + " n'est pas disponible");
@@ -139,14 +177,8 @@ public class Manager extends Employe {
  			System.out.println("vous avez licencié un vendeur");
  		}
        	else{
-       		throw new IllegalArgumentException("le poste n'existe " + emploi +" n'existepas ");
+       		throw new IllegalArgumentException("le poste " + emploi +" n'existe pas ");
 		}
- 	}
- 	
- 	
- 	
- 	public static void main (String[] args) {
- 		Manager chef = new Manager("Quentin", "Barriere", Poste.Manager);
  	}
  	
 }
