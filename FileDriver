@@ -180,10 +180,14 @@ public static void lancerMenu() {
 			// inserer fonction // ;;
 			break;
 		case(3):
-			// inserer fonction // ;
+			System.out.println( " Vous avez séléctionner 3 :  Ajouter un employé ");
+			Manager.Embaucher();
+			System.out.println();
 			break;
 		case(4):
-			// inserer fonction // ;
+			System.out.println( " Vous avez séléctionner 4 : Licencier un employé");
+			Manager.Licencier();
+			System.out.println();
 			break;
 		case(5):
 			// inserer fonction // ;
