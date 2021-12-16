@@ -10,9 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-
-public class FileDriver {
-	 static String chemin = "C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt"; // variable global  je sais si c'est opti ? 
 	
 
 	/**methode pour lire et afficher ce que contient le fichier texte 
@@ -182,7 +179,7 @@ public class FileDriver {
 				String nom = scan.nextLine();
 				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme");
 				String categorie = scan.nextLine();
-				if (Magasin.contenu(nom,categorie)){
+				if (Magasin.contenu(nom,categorie)){ //marche pas
 					Magasin.supArticle(nom,categorie);
 				}
 				else {
@@ -250,10 +247,20 @@ public class FileDriver {
 				Scanner scan = new Scanner(System.in);
 				System.out.print("quel article souhaitez vous acheter : \n");
 				String nom = scan.nextLine();
-				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme");
+				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme \n ");
 				String categorie = scan.nextLine();
-				if (Magasin.contenu(nom,categorie)){
-					
+				
+				if (Magasin.contenu(nom,categorie)){ //marche pas 
+					System.out.print(" Quel est votre nom: \n");
+					String nomClient = scan.nextLine();
+					System.out.print("Quel est votre prénom \n");
+					String prenomClient = scan.nextLine();
+					System.out.print(" : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
+					int argent = scan.nextInt();
+					Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
+					Vendeur v = Manager.indiceAuHasard(); // prend un vendeur au hasard parmi ceux existant 
+					// donner l'objet article a partir du nom et categorie mais jsp si existe deja on peut pas demander au client le prix d'achat
+					Magasin.vendre(c,a,v); // article qu'on aura creer 
 				}
 				else {
 					System.out.println("nous ne possedons pas ce produit dans le magasin, desirez vous autre chose ? ");
@@ -280,5 +287,4 @@ public class FileDriver {
 				System.out.println( " Entrer une option valide ! " );}
 				}while(menu==true);
 		}
-
 }
