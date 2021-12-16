@@ -5,6 +5,11 @@ public abstract class Employe {
 	protected Poste emploi;
 	protected int salaire;
 	
+	/** constructeur Employe
+	 * @param nom de l'employé
+	 * @param prenom de l'employé
+	 * @param emploi poste occupé 
+	 */	
 	public Employe(String nom, String prenom, Poste emploi) {
 		this.nom=nom;
 		this.prenom=prenom;
@@ -20,9 +25,12 @@ public abstract class Employe {
 		return this.nom;
 	}
 	
+	/** methode abstraite indiquant le salaire que va percevoir l'employé */
 	public void recevoirSalaire() {
 		
-		}
+	}
+	
+	/** methode abstraite affichant le salaire que va percevoir l'employé */
 	public void affichage() {
 		
 	}
