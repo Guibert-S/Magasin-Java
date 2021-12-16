@@ -28,7 +28,7 @@ public class Manager extends Employe {
 		Iterator<Vendeur> it =vendeurs.iterator();
 		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
 			Vendeur a=it.next();
-			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
+			System.out.println("Nom: "+a.getNom()+" Prenom: "+a.getPrenom() + "Poste : Vendeur" );
 		}
 	}
 	
@@ -73,7 +73,7 @@ public class Manager extends Employe {
 		Iterator<Menage> it =menages.iterator();
 		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
 			Menage a=it.next();
-			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
+			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom() + "Poste : Employé menage");
 		}
 	}
 	
