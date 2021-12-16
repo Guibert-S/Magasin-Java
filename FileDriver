@@ -257,10 +257,10 @@ import java.util.Map.Entry;
 					String prenomClient = scan.nextLine();
 					System.out.print(" : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
 					int argent = scan.nextInt();
-					Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
+					// Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
 					Vendeur v = Manager.indiceAuHasard(); // prend un vendeur au hasard parmi ceux existant 
 					// donner l'objet article a partir du nom et categorie mais jsp si existe deja on peut pas demander au client le prix d'achat
-					Magasin.vendre(c,a,v); // article qu'on aura creer 
+					//Magasin.vendre(c,a,v);  article qu'on aura creer 
 				}
 				else {
 					System.out.println("nous ne possedons pas ce produit dans le magasin, desirez vous autre chose ? ");
