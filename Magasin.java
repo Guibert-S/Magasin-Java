@@ -146,7 +146,7 @@ public class Magasin {
 	
 	/** methode pour afficher les articles avec leurs categories et leurs stocks correspondant présent dans l'inventaire du magasin
 	 */
-	public void afficherInventaire() {
+	public static void afficherInventaire() {
 		 Iterator it = getArticles().entrySet().iterator();
 	        while (it.hasNext()) {// has.Next, booleanqui indique s'il existe elements dans la collection cf cours 7
 	            Map.Entry m = (Map.Entry) it.next();
