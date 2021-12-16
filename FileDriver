@@ -15,13 +15,6 @@ public class FileDriver {
 	 static String chemin = "C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt"; // variable global  je sais si c'est opti ? 
 	
 
-	 /**fonction pour lire et afficher ce que contient le fichier texte 
-		 * @param String chemin du fichier texte ou variable contenant le chemin du fichier txt.
-		 */
-		
-	public static void afficherFichierSauvegarde(String chemin) { // chemin du fichier que l'on veut afficher //
-	
-
 	/**methode pour lire et afficher ce que contient le fichier texte 
 	 * @param chemin du fichier texte ou variable contenant le chemin du fichier txt.
 	 */
@@ -180,10 +173,22 @@ public class FileDriver {
 				System.out.println( " Vous avez séléctionner 1 :  Ajouter un article ");
 				Article a = new Article();
 				Magasin.ajouterArticle(a);
+				
 				break;
 			case(2):
 				System.out.println( " Vous avez séléctionner 2 :  Supprimer un article ");
-			
+				Scanner scan = new Scanner(System.in);
+				System.out.print("quel article souhaitez vous supprimer : \n");
+				String nom = scan.nextLine();
+				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme");
+				String categorie = scan.nextLine();
+				if (Magasin.contenu(nom,categorie)){
+					Magasin.supArticle(nom,categorie);
+				}
+				else {
+					System.out.println("nous ne possedons pas ce produit dans le magasin il est donc impossible de le supprimer ");
+				}
+				
 				break;
 			case(3):
 				System.out.println( " Vous avez séléctionner 3 :  Ajouter un employé ");
@@ -241,7 +246,18 @@ public class FileDriver {
 				break;
 			case(1):
 				System.out.println( " Vous avez séléctionner 1 :  Acheter un produit ");
-		
+				Magasin.afficherInventaire();
+				Scanner scan = new Scanner(System.in);
+				System.out.print("quel article souhaitez vous acheter : \n");
+				String nom = scan.nextLine();
+				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme");
+				String categorie = scan.nextLine();
+				if (Magasin.contenu(nom,categorie)){
+					
+				}
+				else {
+					System.out.println("nous ne possedons pas ce produit dans le magasin, desirez vous autre chose ? ");
+				}
 				break;
 			case(2):
 				System.out.println( " Vous avez séléctionner 2 :  Voir les produits ");
@@ -264,4 +280,5 @@ public class FileDriver {
 				System.out.println( " Entrer une option valide ! " );}
 				}while(menu==true);
 		}
+
 }
