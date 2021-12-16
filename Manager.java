@@ -60,6 +60,19 @@ public class Manager extends Employe {
    		return true;
    	}
    	
+	
+	/** methode pour choisir un vendeur au hasard parmi ceux existant
+   	 * @return le vendeur 
+   	 */
+   	public static Vendeur indiceAuHasard() {
+   		int indiceAuHasard = (int) (Math.random() * (vendeurs.size() - 1));
+   		Vendeur v = vendeurs.get(indiceAuHasard);
+		return v;
+   	}
+	
+	
+	
+	
 	/** methode pour ajouter des employés menage 
 	 * @param l'employe menage a ajouter 
 	 */
