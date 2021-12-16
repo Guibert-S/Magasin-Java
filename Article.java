@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 /** classe pour creer un objet article dans le magasin
@@ -12,11 +11,12 @@ public class Article {
 	private String categorie;
 	
 	
-
-
-// Constructeur //
-
-
+	/** constructeur article
+	 * @param nom de l'article
+	 * @param prixAchat de l'article auprès du fournisseur
+	 * @param prixVente de l'article dans le magasin
+	 * @param categorie de l'article P,E ou C
+	 */
 	public Article(String nom, double prixAchat, double prixVente, String categorie ) {
 		this.nom =nom;
 		this.prixAchat =prixAchat ;
@@ -24,6 +24,8 @@ public class Article {
 		this.setCategorie(categorie);
 	}
 
+	/** constructeur article 
+	 */
 	public Article() {
 		Scanner objet = new Scanner (System.in);
 		System.out.print("Nom de l'article :\n" );
@@ -41,6 +43,10 @@ public class Article {
 			
 		
 	}
+	
+	/** constructeur article
+	 * @param nom de l'article
+	 */
 	public Article(String nom) {
 		this.nom=nom;
 		
@@ -64,7 +70,7 @@ public class Article {
 	}
 	
 	/**setter pour recuperer le nom de l'article
-	 * @param nom l'article
+	 * @param nom de l'article
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -78,7 +84,7 @@ public class Article {
 	}
 
 	/**setter pour recuperer le prix de l'article acheté auprès du fournisseur
-	 * @param prix d'achat de l'article
+	 * @param prixAchat de l'article
 	 */
 	public void setPrixAchat(double prixAchat) {
 		this.prixAchat = prixAchat;
@@ -94,7 +100,7 @@ public class Article {
 
 
 	/**setter pour donner le prix de vente de l'article
-	 * @param prix de vente de l'article
+	 * @param prixVente de l'article
 	 */
 	public void setPrixVente(double prixVente) {
 		this.prixVente = prixVente;
