@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 
-/** classe pour créer differents types de fournisseurs: articles de ski, accessoires, boissons, nourritures */
+/** classe pour créer differents 4 fournisseurs: articles de ski, accessoires, boissons, nourritures */
 public class Fournisseur {
 	// du coup, 4 fournissuers avec comme attributs le nom, la liste d'articles qu'ils vendent, avec pour faciliter le stock ils peuvet en produire autant qu'on veut(sinon creation de tuples et plus galere) 
 	
@@ -16,7 +16,9 @@ public class Fournisseur {
 	public String getNomFourni() {
 		return this.nomFourni;
 	}
-	
+	/** constructeur Fournisseur
+	 * @param m le magasin
+	 */
 	public Fournisseur (Magasin m) {
 		System.out.println("Nom du fournisseur ? ");
 		Scanner objet2=new Scanner (System.in);
@@ -40,6 +42,12 @@ public class Fournisseur {
 			
 		}
 	}
+	
+	/** constructeur fournisseur
+	 * @param nom du fournisseur
+	 * @param article qu'il fournit
+	 * @param stock du fournisseur
+	 */
 	public Fournisseur(String nom, ArrayList<Article> article,int stock) {//article et stock de meme taille 
 		this.nomFourni=nom;
 		Iterator <Article> it=article.iterator();
@@ -71,7 +79,8 @@ public class Fournisseur {
 	}
 	
 	/** methode pour diminuer le stock d'un article chez le fournisseur
-	 * @param article dont on veut diminuer le stock et x la quantite à enlever du stock
+	 * @param a article dont on veut diminuer le stock 
+	 * @param x la quantite à enlever du stock
 	 */
 	public void diminuerDispo(Article a,int x) {
 		Iterator<Tuple<Article,Integer>> it=artfourni.iterator();
