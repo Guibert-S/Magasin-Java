@@ -147,7 +147,7 @@ public class Manager extends Employe {
  				System.out.println("vous avez ajouté un vendeur");
  			}
  			else {
-				System.out.println("le vendeur "+nom+" "+prenom+" existe déjà");
+				System.out.println("le vendeur "+nom+" "+prenom+" existe déjà donc impossible de l'ajouter a nouveau");
 			}
  		}
        	else{
