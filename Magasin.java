@@ -20,7 +20,10 @@ public class Magasin {
 	/** liste dynamique de vendeur */
 	private ArrayList <Vendeur> employes=new ArrayList <Vendeur>(); 
 	
-	
+	/** constructeur du magasin 
+	 * @param nom du magasin
+	 * @param charges du magasin
+	 */
 	public Magasin(String nom,double charges) {//initialisation du magasin avec les charges. 
 		this.jour=1;
 		this.setRevenu(2000);
@@ -29,7 +32,8 @@ public class Magasin {
 	}
 	
 	/** methode pour verifier qu'un article est bien contenu dans les articles 
-	 * @param s le nom de l'article et sa cateorie
+	 * @param s le nom de l'article 
+	 * @param categorie de l'article
 	 * @return true si le nom de l'article est bien present
 	 */
 	public boolean contenu(String s,String categorie) {
@@ -44,7 +48,8 @@ public class Magasin {
 	}
 		
 	/** methode pour donner le type de l'article correspondant dans l'inventaire
-	 * @param s le nom de l'article et sa cateorie
+	 * @param s le nom de l'article 
+	 * @param categorie de l'article
 	 * @return le type Article correspondant dans l'inventaire
 	 */
 	public Article traduction(String s,String categorie) {
@@ -61,16 +66,17 @@ public class Magasin {
 	
 	
 	/** methode pour ajouter l'article à la liste/array/dictionnaire
-	 * @param article a ajouter 
+	 * @param a article ajouter 
 	 */
-	public void ajouterArticle(Article a) { // on demande le stock au manager 
+	public static void ajouterArticle(Article a) { // on demande le stock au manager 
 		System.out.println("Quelle est le stock de votre article "+a.getNom()+"?");
 		int c=objet.nextInt();
 		getArticles().put(a, c);
 	}
 	
 	/** methode pour ajouter un article et si on connait le stock en amont, si l'article n'existe pas on l'ajoute, sinon on ajoute le stock
-	 * @param l'article et son stock
+	 * @param a l'article 
+	 * @param stock de l'article
 	 */
 	public void AjouterArticlebis(Article a, int stock) {
 		if( getArticles().containsKey(a)==true) {
@@ -83,7 +89,9 @@ public class Magasin {
 	}
 	
 	 /** methode pour qu'un vendeur vende un article a un client
-	  * @param l'article, le client et le vendeur qui effectue la vente
+	  * @param a l'article a vendre
+	  * @param c le client 
+	  * @param v le vendeur qui effectue la vente
 	  */
 	public void vendre(Client c,Article a,Vendeur v) {
 		if(!(clients.contains(c))) {
@@ -117,7 +125,7 @@ public class Magasin {
 		v.setVente(r+1);
 	}
 	/** methode pour filtrer les produits en fonction de leur categorie
- 	 * @param categorie de l'article : choix entre E, C ou P
+ 	 * @param s categorie de l'article : choix entre E, C ou P
 	 */
 	public void filtre(String s){
 		Iterator it = getArticles().entrySet().iterator();
@@ -130,7 +138,7 @@ public class Magasin {
 	}
 	
 	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
-	 * @param client a conseiller
+	 * @param t client a conseiller
 	 */
 	public void dirigerClients(Client t) {// on va conseiller le client en fonction de son budget. 3 cas: premium, confort, entree de gamme 
 		if(t.getArgent()>1000) {
@@ -155,7 +163,8 @@ public class Magasin {
 	}
 	
 	/** methode pour supprimer un article
-	 * @param le nom de l'article et sa categorie
+	 * @param s le nom de l'article
+	 * @param categorie de l'article
 	 */
 	public void supArticle(String s,String categorie) {
 		Article a=traduction (s,categorie);
@@ -201,7 +210,10 @@ public class Magasin {
 	}
 	
 	/** methode pour acheter au fournisseur un article 
- 	 * @param le fournisseur a qui on veut acheter l'article, le nom de l'article, la categorie de l'article et la quantité que le magasin veut acheter 
+ 	 * @param t le fournisseur a qui on veut acheter l'article
+ 	 * @param nom de l'article
+ 	 * @param categorie de l'article 
+ 	 * @param quanti la quantite que le magasin veut acheter 
 	 */
 	public void acheter(Fournisseur t,String nom,String categorie,int quanti) {
 		Article a=this.traduction(nom,categorie);
@@ -214,7 +226,7 @@ public class Magasin {
 	}
 	
 	/** methode pour acheter des articles a un fournisseur
- 	 * @param fournisseur a qui on achete l'article 
+ 	 * @param t fournisseur a qui on achete l'article 
 	 */
 	public void acheterbis(Fournisseur t) {
 		System.out.println("Quels produits voulez vous acheter ?");
@@ -267,26 +279,28 @@ public class Magasin {
 	}
 
 	/** getter pour donner le dictionnaire article ?
+	 * @return ....
 	 */
 	public static Map<Article,Integer> getArticles() {
 		return articles;
 	}
 
 	/** setter pour recuperer le dictionnaire article ?
-	 * @param l'article
+	 * @param articles ....
 	 */
 	public static void setArticles(Map<Article,Integer> articles) {
 		Magasin.articles = articles;
 	}
 	
 	/** getter pour donner le revenu du magasin
+	 * @return le revenu du magasin
 	 */
 	public static double getRevenu() {
 		return revenu;
 	}
 
 	/** setter pour recuperer le revenu du magasin ?
-	 * @param le revenu du magasin
+	 * @param revenu du magasin
 	 */
 	public static void setRevenu(double revenu) {
 		Magasin.revenu = revenu;
