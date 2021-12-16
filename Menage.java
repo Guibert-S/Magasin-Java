@@ -1,6 +1,12 @@
 /** classe qui crée un employé menage */
 
 public class Menage extends Employe {
+	
+	/** constructeur de menage
+	 * @param nom de l'employé
+	 * @param prenom de l'employé
+	 * @param emploi de l'employé
+	 */	
 	public Menage(String nom,String prenom,Poste emploi) {
 		super(nom, prenom, emploi);
 	}
