@@ -4,6 +4,11 @@ public abstract class Client {
 	private String prenom;
 	private double argent;
 	
+	/** constructeur client
+	 * @param nom du client
+	 * @param prenom du client
+	 * @param argent que detient le client
+	 */
 	public Client(String nom,String prenom,int argent) {
 		this.nom=nom;
 		this.prenom=prenom;
@@ -32,7 +37,7 @@ public abstract class Client {
 	}
 	
 	/**setter pour recuperer l'argent que possede le client
-	 * @param l'argent que possede le client en question
+	 * @param argent que possede le client en question
 	 */
 	public void setArgent(double argent) {
 		this.argent = argent;
