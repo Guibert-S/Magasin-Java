@@ -180,7 +180,7 @@ import java.util.Map.Entry;
 				String nom = scan.nextLine();
 				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme");
 				String categorie = scan.nextLine();
-				if (Magasin.contenu(nom,categorie)){ //marche pas
+				if (Magasin.contenu(nom,categorie)){
 					Magasin.supArticle(nom,categorie);
 				}
 				else {
@@ -213,10 +213,9 @@ import java.util.Map.Entry;
 				Manager.afficherEmployeVendeur();
 				
 				break;
-				
 			case(8):
 				System.out.println( " Vous avez séléctionner 6 : Gérer les stocks ");
-				// a faire 
+				// a faire jsp comment faire si on chosiit le fournisseur nous meme et tout 
 			
 				break;
 			default :
@@ -232,6 +231,7 @@ import java.util.Map.Entry;
 		System.out.println( " Option 0 : Quitter le magasin" );
 		System.out.println( " Option 1 : Acheter un produit" );
 		System.out.println( " Option 2 : Voir les produits" );
+		System.out.println( " Option 3 : Conseil en fonction de votre budget " );
 	}
 
 	/** methode pour lancer le menu et naviguer dans le magasin 
@@ -263,12 +263,12 @@ import java.util.Map.Entry;
 					String nomClient = scan.nextLine();
 					System.out.print("Quel est votre prénom \n");
 					String prenomClient = scan.nextLine();
-					System.out.print(" : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
+					System.out.print(" Quel est votre budjet : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
 					int argent = scan.nextInt();
-					// Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
+					Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
 					Vendeur v = Manager.indiceAuHasard(); // prend un vendeur au hasard parmi ceux existant 
 					Article a = Magasin.traduction(prenomClient, categorie);
-					Magasin.vendre(c,a,v);   
+					Magasin.vendre(c,a,v); 
 				}
 				else {
 					System.out.println("nous ne possedons pas ce produit dans le magasin, desirez vous autre chose ? ");
@@ -280,6 +280,15 @@ import java.util.Map.Entry;
 			
 				break;
 			case(3):
+				System.out.println( " Vous avez séléctionner 2 :  Voir les produits ");
+				System.out.print(" Quel est votre nom: \n");
+				String nomClient = scan.nextLine();
+				System.out.print("Quel est votre prénom \n");
+				String prenomClient = scan.nextLine();
+				System.out.print(" Quel est votre budjet : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
+				int argent = scan.nextInt();
+				Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
+				Magasin.dirigerClients(c);
 			
 				break;
 			case(4):
