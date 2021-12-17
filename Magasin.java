@@ -127,7 +127,7 @@ public class Magasin {
 	/** methode pour filtrer les produits en fonction de leur categorie
  	 * @param s categorie de l'article : choix entre E, C ou P
 	 */
-	public void filtre(String s){//filtre les produits en focntion de leur categorie, premium etc..
+	public static void filtre(String s){//filtre les produits en focntion de leur categorie, premium etc..
 		Iterator it = getArticles().entrySet().iterator();
         	while (it.hasNext()) {
         		Map.Entry m=(Map.Entry) it.next();
