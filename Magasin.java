@@ -36,7 +36,7 @@ public class Magasin {
 	 * @param categorie de l'article
 	 * @return true si le nom de l'article est bien present, qu'importe si le mot comporte des majuscules ou pas
 	 */
-	public boolean contenu(String s,String categorie) {
+	public static boolean contenu(String s,String categorie) {
 		Iterator <Entry<Article,Integer>>it=getArticles().entrySet().iterator();
 		while(it.hasNext()) {
 			Map.Entry m=(Map.Entry) it.next();
@@ -52,7 +52,7 @@ public class Magasin {
 	 * @param categorie de l'article
 	 * @return le type Article correspondant dans l'inventaire
 	 */
-	public Article traduction(String s,String categorie) {// on prend le nom d'un article et on renvoie le type Article correspondant dans l'inventaire
+	public static Article traduction(String s,String categorie) {// on prend le nom d'un article et on renvoie le type Article correspondant dans l'inventaire
 		Iterator<Entry<Article, Integer>> it=getArticles().entrySet().iterator();
 		while(it.hasNext()) {
 			Map.Entry m=(Map.Entry) it.next();
@@ -140,7 +140,7 @@ public class Magasin {
 	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
 	 * @param t client a conseiller
 	 */
-	public void dirigerClients(Client t) {// on va conseiller le client en fonction de son budget. 3 cas: premium, confort, entree de gamme 
+	public static void dirigerClients(Client t) {// on va conseiller le client en fonction de son budget. 3 cas: premium, confort, entree de gamme 
 		if(t.getArgent()>1000) {
 			filtre("P");
 		}
@@ -166,7 +166,7 @@ public class Magasin {
 	 * @param s le nom de l'article
 	 * @param categorie de l'article
 	 */
-	public void supArticle(String s,String categorie) {
+	public static void supArticle(String s,String categorie) {
 		Article a=traduction (s,categorie);
 		getArticles().remove(a);
 	}
