@@ -64,6 +64,18 @@ public class Magasin {
 		
 	}
 	
+	/** methode pour obtenir la valeur à partir d'une clef 
+	 * * @param map contenant les articles
+	 * @param  valeur pour acceder à la clef
+	 * @return le type Article correspondant dans l'inventaire**/ 
+	 public static <K, V> K obtenirUneClefAvecKey(Map<K, V> map, V value) {
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            if (Objects.equals(value, entry.getValue())) {
+                return entry.getKey();
+            } 
+            }
+        return null;
+	}
 	
 	/** methode pour ajouter l'article à la liste/array/dictionnaire
 	 * @param a article ajouter 
