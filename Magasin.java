@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Magasin {
 	private int jour;
-	private String nom;
+	private static String nom;
 	private static double revenu;
 	private static double charges;
 	/** dictionnaire reliant les articles avec leur stock */
@@ -301,6 +301,13 @@ public class Magasin {
 	public static void setRevenu(double revenu) {
 		Magasin.revenu = revenu;
 	}
+	
+	public static String getNom() {
+		return nom;
+	}
+
+	
+
 
 }
 
