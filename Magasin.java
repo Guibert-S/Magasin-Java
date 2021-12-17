@@ -127,14 +127,14 @@ public class Magasin {
 	/** methode pour filtrer les produits en fonction de leur categorie
  	 * @param s categorie de l'article : choix entre E, C ou P
 	 */
-	public void filtre(String s){
+	public void filtre(String s){//filtre les produits en focntion de leur categorie, premium etc..
 		Iterator it = getArticles().entrySet().iterator();
-       	 	while (it.hasNext()) {
+        	while (it.hasNext()) {
         		Map.Entry m=(Map.Entry) it.next();
-        		if(((Article) m.getKey()).getCategorie()==s) {
+        		if(((Article) m.getKey()).getCategorie().equalsIgnoreCase(s)) {
         			((Article) m.getKey()).afficherArticle();
         		}
-	       	}
+        	}
 	}
 	
 	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
@@ -229,12 +229,12 @@ public class Magasin {
  	 * @param t fournisseur a qui on achete l'article 
 	 */
 	public void acheterbis(Fournisseur t) {
-		System.out.println("Quels produits voulez vous acheter ?");
+		System.out.println("Liste produit disponible");
 		t.afficherProdFour();
 		System.out.println("Nom du produit:");
 		String nom=objet.nextLine();
 		System.out.println("1.Premium, 2.Confort,3.Entree de gamme");
-		int a=1;
+		int a=objet.nextInt();
 		String categorie="";
 		if(a==1) {
 			categorie="P";
@@ -246,7 +246,7 @@ public class Magasin {
 			categorie="E";
 		}
 		System.out.println("Quantité: ");
-		int quanti=20;
+		int quanti=objet.nextInt();
 		System.out.println(nom+categorie+quanti);
 		acheter(t,nom,categorie,quanti);
 		
