@@ -133,6 +133,14 @@ import java.util.Map.Entry;
 	public static void doublon(Map<Article, Integer> map ) {
 	}
 
+	public static void afficherTeteMenu() {
+	
+	System.out.println( "-----------------------------------");
+	System.out.println( "           Bienvenue               ");
+	System.out.println( "       dans notre magasin:         ");
+	System.out.println(    Magasin.getNom().toUpperCase()           );
+	System.out.println( "-----------------------------------");
+}
 
 	/** methode pour afficher le menu dans la console 
 	 */
@@ -156,6 +164,7 @@ import java.util.Map.Entry;
 	 */
 
 	public static void lancerMenu1() {
+		afficherTeteMenu();
 		boolean menu = true;
 		do {
 			afficherMenu1();
@@ -238,6 +247,7 @@ import java.util.Map.Entry;
 	 */
 
 	public static void lancerMenu2() {
+		afficherTeteMenu();
 		boolean menu = true;
 		do {
 			afficherMenu2();
