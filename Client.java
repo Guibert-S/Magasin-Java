@@ -50,5 +50,8 @@ public abstract class Client {
 	public void setAchat(int achat){
 		this.achat=achat;
 	}
+	public void getAchat(){
+		return this.achat;
+	}
 }
 
