@@ -86,10 +86,12 @@ public class Fournisseur {
 		Iterator<Tuple<Article,Integer>> it=artfourni.iterator();
 		while(it.hasNext()) {
 			Tuple<Article,Integer> t=it.next();
-			if(t.getT1().getNom()==a.getNom()&& t.getT1().getCategorie()==a.getCategorie()) {
+			if(t.getT1().getNom().equalsIgnoreCase(a.getNom())&& t.getT1().getCategorie().equalsIgnoreCase(a.getCategorie())) {
 				t.setT2(t.getT2()-x);
 			}
 		}
+
+		
 	}
 	
 	/** getter pour donner l'article et sa quantité 
