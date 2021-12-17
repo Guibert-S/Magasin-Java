@@ -14,7 +14,7 @@ public class Menage extends Employe {
 	/** methode pour recuperer le salaire 
 	 */
 	public void recevoirSalaire() {
-		this.salaire=50; // salaire mensuel 
+		this.salaire=1200; // salaire mensuel 
 		
 	}
 	
