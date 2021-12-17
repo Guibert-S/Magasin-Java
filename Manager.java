@@ -8,6 +8,11 @@ public class Manager extends Employe {
 	private static ArrayList <Vendeur> vendeurs=new ArrayList <Vendeur>(); 
 	private static ArrayList <Menage> menages =new ArrayList <Menage>(); 
 	
+	/** constructeur Manager
+	 * @param nom du manager
+	 * @param prenom du manager
+	 * @param emploi parmi les postes
+	 */
 	public Manager(String nom, String prenom, Poste emploi) {
 		super(nom, prenom, emploi);
 		this.salaire=3000;
@@ -16,7 +21,7 @@ public class Manager extends Employe {
 		
 	
 	/** methode pour ajouter des employes des vendeurs en particulier
-	 * @param le vendeur a ajouter 
+	 * @param e le vendeur a ajouter 
 	 */
 	public static void ajoutEmployeVendeur(Vendeur e) {
 		vendeurs.add(e);
@@ -28,12 +33,11 @@ public class Manager extends Employe {
 		Iterator<Vendeur> it =vendeurs.iterator();
 		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
 			Vendeur a=it.next();
-			System.out.println("Nom: "+a.getNom()+" Prenom: "+a.getPrenom() + "Poste : Vendeur" );
+			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
 		}
 	}
 	
 	/** methode pour licencier des vendeurs mais il doit en rester toujours 1
-	 * @param le vendeur a licencier
 	 */
     public static void licencierVendeur(){
     	int i = vendeurs.size();
@@ -42,12 +46,12 @@ public class Manager extends Employe {
     		System.out.println("le dernier embauché est licencié ");
     	}
     	else{
-            throw new IllegalArgumentException("il ne reste pas assez de vendeur donc impossible de licencier");
+    		System.out.println("il ne reste pas assez de vendeur donc impossible de licencier");
         }
     }
 	
     /** methode pour verifier que le vendeur n'est pas deja dans l'entreprise
-   	 * @param le vendeur a verifier 
+   	 * @param v le vendeur a verifier 
    	 * @return true si le vendeur n'existe pas deja dans la base
    	 */
    	public static boolean pasDoublonVendeur(Vendeur v) {
@@ -60,8 +64,7 @@ public class Manager extends Employe {
    		return true;
    	}
    	
-	
-	/** methode pour choisir un vendeur au hasard parmi ceux existant
+   	/** methode pour choisir un vendeur au hasard parmi ceux existant
    	 * @return le vendeur 
    	 */
    	public static Vendeur indiceAuHasard() {
@@ -69,12 +72,11 @@ public class Manager extends Employe {
    		Vendeur v = vendeurs.get(indiceAuHasard);
 		return v;
    	}
-	
-	
-	
-	
+   	
+   	
+   	
 	/** methode pour ajouter des employés menage 
-	 * @param l'employe menage a ajouter 
+	 * @param m l'employe menage a ajouter 
 	 */
 	public static void ajoutEmployeMenage(Menage m) {
 		menages.add(m);
@@ -86,12 +88,11 @@ public class Manager extends Employe {
 		Iterator<Menage> it =menages.iterator();
 		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
 			Menage a=it.next();
-			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom() + "Poste : Employé menage");
+			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
 		}
 	}
 	
 	/** methode pour licencier des employés menage mais il doit en rester toujours 1
-	 * @param l'employe menage a licencier
 	 */
     public static void licencierMenage(){
     	int i = menages.size();
@@ -100,12 +101,12 @@ public class Manager extends Employe {
     		System.out.println("le dernier embauché est licencié ");
     	}
     	else{
-            throw new IllegalArgumentException("il ne reste pas assez d'employé menage donc impossible de licencier");
+            System.out.println("il ne reste pas assez d'employé menage donc impossible de licencier");
         }
     }
     
     /** methode pour verifier que l'employé menage n'est pas deja dans l'entreprise
-   	 * @param l'employé menage a verifier 
+   	 * @param m l'employé menage a verifier 
    	 * @return true si l'employé n'existe pas deja dans la base
    	 */
    	public static boolean pasDoublonMenage(Menage m) {
@@ -160,11 +161,11 @@ public class Manager extends Employe {
  				System.out.println("vous avez ajouté un vendeur");
  			}
  			else {
-				System.out.println("le vendeur "+nom+" "+prenom+" existe déjà donc impossible de l'ajouter a nouveau");
+				System.out.println("le vendeur "+nom+" "+prenom+" existe déjà");
 			}
  		}
        	else{
-       		throw new IllegalArgumentException("le poste " + emploi + " n'est pas disponible");
+       		System.out.println("le poste " + emploi + " n'est pas disponible");
 		}
  	}
  	
@@ -190,9 +191,9 @@ public class Manager extends Employe {
  			System.out.println("vous avez licencié un vendeur");
  		}
        	else{
-       		throw new IllegalArgumentException("le poste " + emploi +" n'existe pas ");
+       		System.out.println("le poste " + emploi +" n'existe pas ");
 		}
  	}
  	
-}
+}  
  
