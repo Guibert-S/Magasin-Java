@@ -310,6 +310,9 @@ public class Magasin {
 		Magasin.revenu = revenu;
 	}
 	
+	/** getter pour donner le nom du magasin
+	 * @return le nom du magasin
+	 */
 	public static String getNom() {
 		return nom;
 	}
