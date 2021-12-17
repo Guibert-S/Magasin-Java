@@ -10,7 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+public class FileDriver {
 	
+	 static String chemin = "C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt"; // variable global  je sais si c'est opti ? 
+	
+
+		
 
 	/**methode pour lire et afficher ce que contient le fichier texte 
 	 * @param chemin du fichier texte ou variable contenant le chemin du fichier txt.
