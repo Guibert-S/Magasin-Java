@@ -93,7 +93,7 @@ public class Magasin {
 	  * @param c le client 
 	  * @param v le vendeur qui effectue la vente
 	  */
-	public void vendre(Client c,Article a,Vendeur v) {
+	public static void vendre(Client c,Article a,Vendeur v) {
 		if(!(clients.contains(c))) {
 			clients.add(c);
 		}
