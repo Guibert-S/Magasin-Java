@@ -110,13 +110,13 @@ public class Article {
 	 */
 	public void afficherArticle() {
 		if(categorie=="P") {
-			System.out.println("Nom article: "+this.nom+" Prix d'achat: "+this.prixAchat+" Prix de vente: "+this.prixVente+" Categorie: Premium");
+			System.out.println("Nom article: "+this.nom.toUpperCase()+" Prix d'achat: "+this.prixAchat+" Prix de vente: "+this.prixVente+" Categorie: Premium");
 		}
 		if(categorie=="C") {
-			System.out.println("Nom article: "+this.nom+" Prix d'achat: "+this.prixAchat+" Prix de vente: "+this.prixVente+" Categorie: Confort");
+			System.out.println("Nom article: "+this.nom.toUpperCase()+" Prix d'achat: "+this.prixAchat+" Prix de vente: "+this.prixVente+" Categorie: Confort");
 		}
 		if(categorie=="E") {
-			System.out.println("Nom article: "+this.nom+" Prix d'achat: "+this.prixAchat+" Prix de vente: "+this.prixVente+" Categorie: Entree de gamme");
+			System.out.println("Nom article: "+this.nom.toUpperCase()+" Prix d'achat: "+this.prixAchat+" Prix de vente: "+this.prixVente+" Categorie: Entree de gamme");
 		}
 	}
 
