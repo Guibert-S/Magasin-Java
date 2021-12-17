@@ -13,10 +13,10 @@ class ArticleTest {
 
 	@BeforeEach
 	
-	/** Dans la méthode setUp, nous réaffectons le flux de sortie 
-	 * standard à un nouveau PrintStream avec un ByteArrayOutputStream. 
+	/** Dans la mÃ©thode setUp, nous rÃ©affectons le flux de sortie 
+	 * standard Ã  un nouveau PrintStream avec un ByteArrayOutputStream. 
 	 *  Ce flux de sortie est l'endroit
-	 *  où les valeurs seront maintenant imprimées 
+	 *  oÃ¹ les valeurs seront maintenant imprimÃ©es 
 	 */
 public void setUp() {
     System.setOut(new PrintStream(outputStreamCaptor));
@@ -28,16 +28,16 @@ public void setUp() {
 	public void testAfficherArticle() {
 		Article instance = new Article("ski",10,10,"P");
 		instance.afficherArticle();
-		String message_attendu = ("Nom article: "+instance.getNom()+" Prix d'achat: "+instance.getPrixAchat()+" Prix de vente: "+instance.getPrixVente()+" Categorie: "+ instance.getCategorie());
+		String message_attendu = ("Nom article: "+instance.getNom().toUpperCase()+" Prix d'achat: "+instance.getPrixAchat()+" Prix de vente: "+instance.getPrixVente()+" Categorie: "+ instance.getCategorie());
 		assertEquals(message_attendu, outputStreamCaptor.toString()
-			      .trim()); /* trimp permet de supprimer le retour à la ligne */
+			      .trim()); /* trimp permet de supprimer le retour Ã  la ligne */
 		
 	}
 	
 	@AfterEach
 	
-	/** Dans la méthode tearDown on restaure le flux de sortie intial 
-	 * car c'est une ressource partagé par d'autre parties du systèmes.
+	/** Dans la mÃ©thode tearDown on restaure le flux de sortie intial 
+	 * car c'est une ressource partagÃ© par d'autre parties du systÃ¨mes.
 	 */
 	
 	public void tearDown() {
