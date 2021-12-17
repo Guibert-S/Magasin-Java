@@ -46,7 +46,7 @@ public class FileDriver {
 	
 	/**methode pour afficher ce que contient le fichier texte 
 	 * @param chemin du fichier texte ou variable contenant le chemin du fichier txt.
-	 * @param nom de l'Article que l'on veut écrire dans le fichier texte pour le sauvegarder.
+	 * @param article que l'on veut le fichier texte pour le sauvegarder.
 	 */
 	
 	
@@ -67,8 +67,8 @@ public class FileDriver {
 	}
 
 	/**fonctipour afficher ce que contient le fichier texte 
-	 * @param String chemin du fichier texte ou variable contenant le chemin du fichier txt.
-	 * @param HashMap<Article,Integer>  nom du dictionnaire que l'on veut sauvegarder dans le fichier texte.
+	 * @param chemin du fichier texte ou variable contenant le chemin du fichier txt.
+	 * @param map : nom du dictionnaire que l'on veut sauvegarder dans le fichier texte.
 	 */
 
 
@@ -95,7 +95,7 @@ public class FileDriver {
 
 
 	/**fonction pour lire le fichier txt 
-	 * @param String chemin du fichier texte ou variable contenant le chemin du fichier txt.
+	 * @param chemin du fichier texte ou variable contenant le chemin du fichier txt.
 	 */
 
 
