@@ -45,11 +45,15 @@ public abstract class Client {
 		this.argent = argent;
 	}
 	/**setter pour recuperer le nombre d'achats effectués par le client 
-	* @param achats effectués par le client
+	* @param achat effectués par le client
 	*/
 	public void setAchat(int achat){
 		this.achat=achat;
 	}
+	
+	/**getter pour donner le nombre d'achat effectué par le client
+	 * @return int le nombre d'achat effectué par le client
+	 */
 	public int getAchat(){
 		return this.achat;
 	}
