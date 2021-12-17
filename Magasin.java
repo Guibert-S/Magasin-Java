@@ -263,10 +263,6 @@ public class Magasin {
 		mag.AjouterArticlebis(c,1);
 		Vendeur jo=new Vendeur("john","doe",Poste.Vendeur,0);
 		jo.affichage();
-		mag.ajoutEmploye(jo);
-		Client bob=new Client ("bob","bdd",1000,0,"");
-		mag.vendre(bob, a, jo);
-		jo.affichage();
 		ArrayList <Article> a1=new ArrayList<Article>();
 		a1.add(a);
 		a1.add(b);
