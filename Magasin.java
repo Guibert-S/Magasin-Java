@@ -34,13 +34,13 @@ public class Magasin {
 	/** methode pour verifier qu'un article est bien contenu dans les articles 
 	 * @param s le nom de l'article 
 	 * @param categorie de l'article
-	 * @return true si le nom de l'article est bien present
+	 * @return true si le nom de l'article est bien present, qu'importe si le mot comporte des majuscules ou pas
 	 */
 	public boolean contenu(String s,String categorie) {
-		Iterator it=getArticles().entrySet().iterator();
+		Iterator <Entry<Article,Integer>>it=getArticles().entrySet().iterator();
 		while(it.hasNext()) {
 			Map.Entry m=(Map.Entry) it.next();
-			if(((Article) m.getKey()).getNom()==s && ((Article) m.getKey()).getCategorie()==categorie) {
+			if(((Article) m.getKey()).getNom().equalsIgnoreCase(s) && ((Article) m.getKey()).getCategorie().equalsIgnoreCase(categorie)) {
 				return true;
 			}
 		}
@@ -52,11 +52,11 @@ public class Magasin {
 	 * @param categorie de l'article
 	 * @return le type Article correspondant dans l'inventaire
 	 */
-	public Article traduction(String s,String categorie) {
+	public Article traduction(String s,String categorie) {// on prend le nom d'un article et on renvoie le type Article correspondant dans l'inventaire
 		Iterator<Entry<Article, Integer>> it=getArticles().entrySet().iterator();
 		while(it.hasNext()) {
 			Map.Entry m=(Map.Entry) it.next();
-			if(((Article) m.getKey()).getNom()==s && ((Article) m.getKey()).getCategorie()==categorie) {
+			if(((Article) m.getKey()).getNom().equalsIgnoreCase(s) && ((Article) m.getKey()).getCategorie().equalsIgnoreCase(categorie)) {
 				return (Article) m.getKey();
 			}
 		}
