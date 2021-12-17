@@ -40,7 +40,7 @@ public class Article {
 		
 		System.out.println("Categorie de l'article: P(premium), C(confort),E(entrée de gamme)");
 		categorie=objet.nextLine();
-			
+		objet.close();	
 		
 	}
 	
@@ -60,7 +60,7 @@ public class Article {
 		
 		System.out.println("Categorie de l'article: P(premium), C(confort),E(entrée de gamme)");
 		categorie=objet.nextLine();
-		
+		objet.close();
 	}
 	/**getter pour donner le nom de l'article
 	 * @return String nom de l'article
