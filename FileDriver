@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+/** classe contenant le menu et les fonctions de lectures et d'ecriture du fichier texte permettant de sauvegarder les données
+ */
 public class FileDriver {
 	
 	 static String chemin = "C:/Users/samue/OneDrive/Bureau/Sauvegarde_Inventaire.txt"; // variable global  je sais si c'est opti ? 
@@ -147,7 +149,7 @@ public class FileDriver {
 	System.out.println( "-----------------------------------");
 }
 
-	/** methode pour afficher le menu dans la console 
+	/** methode pour afficher le menu 1 dans la console 
 	 */
 
 	public static void afficherMenu1() {
@@ -165,7 +167,7 @@ public class FileDriver {
 		System.out.println( " Option 8 : Gérer les stocks " );
 	}
 
-	/** methode pour lancer le menu et naviguer dans le magasin 
+	/** methode pour lancer le menu 1, et donc les actions que peut effectuer le manager 
 	 */
 
 	public static void lancerMenu1() {
@@ -237,7 +239,8 @@ public class FileDriver {
 					}while(menu==true);
 		}
 
-
+	/** methode pour afficher le menu 1 dans la console 
+	 */
 	public static void afficherMenu2() {
 		System.out.println();
 		System.out.println( "------ \n Séléction Menu Client \n ------" );
@@ -248,7 +251,7 @@ public class FileDriver {
 		System.out.println( " Option 3 : Conseil en fonction de votre budget " );
 	}
 
-	/** methode pour lancer le menu et naviguer dans le magasin 
+	/** methode pour lancer le menu 2,  et donc les actions que peut effectuer le client
 	 */
 
 	public static void lancerMenu2() {
