@@ -2,6 +2,7 @@
 public abstract class Client {
 	private String nom;
 	private String prenom;
+	private int achat;
 	private double argent;
 	
 	/** constructeur client
@@ -13,6 +14,7 @@ public abstract class Client {
 		this.nom=nom;
 		this.prenom=prenom;
 		this.setArgent(argent);
+		this.setAchat(0);
 	}
 	
 	/**getter pour donner l'argent que possede le client
@@ -41,6 +43,12 @@ public abstract class Client {
 	 */
 	public void setArgent(double argent) {
 		this.argent = argent;
+	}
+	/**setter pour recuperer le nombre d'achats effectués par le client 
+	* @param achats effectués par le client
+	*/
+	public void setAchat(int achat){
+		this.achat=achat;
 	}
 }
 
