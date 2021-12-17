@@ -50,7 +50,7 @@ public abstract class Client {
 	public void setAchat(int achat){
 		this.achat=achat;
 	}
-	public void getAchat(){
+	public int getAchat(){
 		return this.achat;
 	}
 }
