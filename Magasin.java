@@ -216,17 +216,39 @@ public class Magasin {
 	
 	/** methode pour simuler le paiement des charges et le paiement des salaires (charges fixes)
 	 */
-	public void finMois() {
-		if(jour==30) {
-			setRevenu(getRevenu() - charges);
-			for(Vendeur i:employes) {
-				setRevenu(getRevenu() - i.salaire);
-				i.setVente(0);
-				i.setSalaire(1800);
-			}
-			jour=1;
+	public static void finMois() {// permet de simuler le paiement des charges et le paiement des salaires (charges fixes)
+		setRevenu(getRevenu() - charges);
+		for(Vendeur i:Manager.getVendeurs()) {
+			setRevenu(getRevenu() - i.salaire);
+			i.setVente(0);
+			i.setSalaire(1800);
 		}
-		
+		for(Menage j:Manager.getMenages()) {
+			setRevenu(getRevenu() - j.salaire);
+		}
+		setJour(1);
+	}
+	
+	public static boolean chercherFournisseurbool(String nom,String categorie) {
+		for (Fournisseur i:fournisseurs) {
+			for (Tuple j:i.getArtfourni()) {
+				if(((Article) j.getT1()).getNom().equalsIgnoreCase(nom)&& ((Article) j.getT1()).getCategorie().equalsIgnoreCase(categorie)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static Fournisseur chercherFournisseur(String nom,String categorie) {
+		for (Fournisseur i:fournisseurs) {
+			for (Tuple j:i.getArtfourni()) {
+				if(((Article) j.getT1()).getNom().equalsIgnoreCase(nom)&& ((Article) j.getT1()).getCategorie().equalsIgnoreCase(categorie)) {
+					return i;
+				}
+			}
+		}
+		return null;
 	}
 	
 	/** methode pour acheter au fournisseur un article 
@@ -235,7 +257,7 @@ public class Magasin {
  	 * @param categorie de l'article 
  	 * @param quanti la quantite que le magasin veut acheter 
 	 */
-	public void acheter(Fournisseur t,String nom,String categorie,int quanti) {
+	public static void acheter(Fournisseur t,String nom,String categorie,int quanti) {
 		Article a=this.traduction(nom,categorie);
 		revenu-=quanti*a.getPrixAchat();
 		a.afficherArticle();
@@ -248,7 +270,7 @@ public class Magasin {
 	/** methode pour acheter des articles a un fournisseur
  	 * @param t fournisseur a qui on achete l'article 
 	 */
-	public void acheterbis(Fournisseur t) {
+	public static void acheterbis(Fournisseur t) {
 		System.out.println("Liste produit disponible");
 		t.afficherProdFour();
 		System.out.println("Nom du produit:");
