@@ -235,7 +235,7 @@ public class FileDriver {
 				System.out.println( " Vous avez séléctionner 6 : Gérer les stocks \n");
 				System.out.println("Quels produits voulez vous acheter ?\n");
 				String nomarticle=scan.nextLine();
-				System.out.println("Quelle catégorie: \n");
+				System.out.println("Quelle catégorie: choix entre P:premium, C, confort et E, entrée de gamme \n");
 				String cate=scan.nextLine();
 				if(Magasin.chercherFournisseurbool(nomarticle,cate)==false) {
 					System.out.println("Pas de fournisseur pour votre produit");
