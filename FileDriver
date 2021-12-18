@@ -256,6 +256,11 @@ public class FileDriver {
 
 	public static void lancerMenu2() {
 		afficherTeteMenu();
+		Scanner scan = new Scanner(System.in);
+		if(Magasin.getJour()==30) {
+			Magasin.finMois();
+		}
+		Magasin.setJour(Magasin.getJour()+1);
 		boolean menu = true;
 		do {
 			afficherMenu2();
@@ -270,10 +275,10 @@ public class FileDriver {
 			case(1):
 				System.out.println( " Vous avez séléctionner 1 :  Acheter un produit ");
 				Magasin.afficherInventaire();
-				Scanner scan = new Scanner(System.in);
-				System.out.print("quel article souhaitez vous acheter : \n");
+				
+				System.out.print("Quel article souhaitez vous acheter : \n");
 				String nom = scan.nextLine();
-				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme \n ");
+				System.out.print("Quel est la categorie de votre article : choix entre P:premium, C, confort et E, entrée de gamme \n ");
 				String categorie = scan.nextLine();
 				
 				if (Magasin.contenu(nom,categorie)){ //marche pas 
@@ -283,9 +288,9 @@ public class FileDriver {
 					String prenomClient = scan.nextLine();
 					System.out.print(" Quel est votre budjet : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
 					int argent = scan.nextInt();
-					Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
+					Client c = new Client(nomClient,prenomClient,argent,0); //marche pas mais jsp pourquoi
 					Vendeur v = Manager.indiceAuHasard(); // prend un vendeur au hasard parmi ceux existant 
-					Article a = Magasin.traduction(prenomClient, categorie);
+					Article a = Magasin.traduction(nom, categorie);
 					Magasin.vendre(c,a,v); 
 				}
 				else {
@@ -298,14 +303,13 @@ public class FileDriver {
 			
 				break;
 			case(3):
-				System.out.println( " Vous avez séléctionner 2 :  Voir les produits ");
 				System.out.print(" Quel est votre nom: \n");
 				String nomClient = scan.nextLine();
 				System.out.print("Quel est votre prénom \n");
 				String prenomClient = scan.nextLine();
 				System.out.print(" Quel est votre budjet : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
 				int argent = scan.nextInt();
-				Client c = new Client(nomClient,prenomClient,argent); //marche pas mais jsp pourquoi
+				Client c = new Client(nomClient,prenomClient,argent,0); //marche pas mais jsp pourquoi
 				Magasin.dirigerClients(c);
 			
 				break;
