@@ -1,3 +1,4 @@
+/** classe application */
 
 public class MainApp {
 	 
@@ -14,11 +15,8 @@ public class MainApp {
 		
 		FileDriver.lireFichierSauvegarder(FileDriver.chemin);
 		
-		Magasin.afficherInventaire();
-		
-		FileDriver.lancerMenu();
+		FileDriver.lancerMenu1();
+		FileDriver.lancerMenu2();
 	}
-
-
 
 }
