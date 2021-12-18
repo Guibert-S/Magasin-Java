@@ -17,6 +17,7 @@ public class Magasin {
 	/** dictionnaire reliant le client avec leur nombre d'achats */
 	private static ArrayList <Client> clients = new ArrayList<Client>();
 	static Scanner objet = new Scanner (System.in);
+	private static ArrayList <Fournisseur> fournisseurs =new ArrayList <Fournisseur>();
 	
 	
 	
@@ -229,6 +230,9 @@ public class Magasin {
 		setJour(1);
 	}
 	
+	public void ajouterFournisseur(Fournisseur f) {
+		fournisseurs.add(f);
+	}
 	public static boolean chercherFournisseurbool(String nom,String categorie) {
 		for (Fournisseur i:fournisseurs) {
 			for (Tuple j:i.getArtfourni()) {
