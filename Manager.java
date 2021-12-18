@@ -68,10 +68,11 @@ public class Manager extends Employe {
    	 * @return le vendeur 
    	 */
    	public static Vendeur indiceAuHasard() {
-   		int indiceAuHasard = (int) (Math.random() * (vendeurs.size() - 1));
-   		Vendeur v = vendeurs.get(indiceAuHasard);
+   		int indiceAuHasard = (int) (Math.random() * (getVendeurs().size() - 0))+0;
+   		Vendeur v = getVendeurs().get(indiceAuHasard);
 		return v;
    	}
+   	
    	
    	
    	
