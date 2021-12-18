@@ -95,10 +95,14 @@ public class Fournisseur {
 	}
 	
 	/** getter pour donner l'article et sa quantité 
-	 * @return ... a completer 
+	 * @return la liste des articles ainsi que leur stock 
 	 */
-	public ArrayList<Tuple<Article, Integer>> getTuple() {
+	public ArrayList<Tuple<Article,Integer>> getArtfourni() {
 		return artfourni;
+	}
+
+	public void setArtfourni(ArrayList<Tuple<Article,Integer>> artfourni) {
+		this.artfourni = artfourni;
 	}
 	
 	public static void main(String[] args) {
