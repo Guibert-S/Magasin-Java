@@ -17,8 +17,8 @@ public class Magasin {
 	/** dictionnaire reliant le client avec leur nombre d'achats */
 	private static ArrayList <Client> clients = new ArrayList<Client>();
 	static Scanner objet = new Scanner (System.in);
-	/** liste dynamique de vendeur */
-	private ArrayList <Vendeur> employes=new ArrayList <Vendeur>(); 
+	
+	
 	
 	/** constructeur du magasin 
 	 * @param nom du magasin
