@@ -172,6 +172,7 @@ public class FileDriver {
 
 	public static void lancerMenu1() {
 		afficherTeteMenu();
+		Scanner scan = new Scanner(System.in);
 		boolean menu = true;
 		do {
 			afficherMenu1();
@@ -191,7 +192,7 @@ public class FileDriver {
 				break;
 			case(2):
 				System.out.println( " Vous avez séléctionner 2 :  Supprimer un article ");
-				Scanner scan = new Scanner(System.in);
+				
 				System.out.print("quel article souhaitez vous supprimer : \n");
 				String nom = scan.nextLine();
 				System.out.print("quel est la categrie de votre article : choix entre P:premium, C, confort et E, entré de gamme");
@@ -230,8 +231,19 @@ public class FileDriver {
 				
 				break;
 			case(8):
-				System.out.println( " Vous avez séléctionner 6 : Gérer les stocks ");
-				// a faire jsp comment faire si on chosiit le fournisseur nous meme et tout 
+				System.out.println( " Vous avez séléctionner 6 : Gérer les stocks \n");
+				System.out.println("Quels produits voulez vous acheter ?\n");
+				String nomarticle=scan.nextLine();
+				System.out.println("Quelle catégorie: \n");
+				String cate=scan.nextLine();
+				if(Magasin.chercherFournisseurbool(nomarticle,cate)==false) {
+					System.out.println("Pas de fournisseur pour votre produit");
+				}
+				else {
+					Fournisseur f=Magasin.chercherFournisseur(nomarticle,cate);
+					Magasin.acheterbis(f);
+				}
+				
 			
 				break;
 			default :
