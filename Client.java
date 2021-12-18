@@ -1,5 +1,5 @@
 /** classe pour creer un client */
-public class Client {
+public abstract class Client {
 	private String nom;
 	private String prenom;
 	private int achat;
