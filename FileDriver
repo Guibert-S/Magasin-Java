@@ -301,7 +301,7 @@ public class FileDriver {
 					String prenomClient = scan.nextLine();
 					System.out.print(" Quel est votre budjet : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
 					int argent = scan.nextInt();
-					Client c = new Client(nomClient,prenomClient,argent,0); //marche pas mais jsp pourquoi
+					Client c = new Client(nomClient,prenomClient,argent); 
 					Vendeur v = Manager.indiceAuHasard(); // prend un vendeur au hasard parmi ceux existant 
 					Article a = Magasin.traduction(nom, categorie);
 					Magasin.vendre(c,a,v); 
@@ -322,7 +322,7 @@ public class FileDriver {
 				String prenomClient = scan.nextLine();
 				System.out.print(" Quel est votre budjet : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
 				int argent = scan.nextInt();
-				Client c = new Client(nomClient,prenomClient,argent,0); //marche pas mais jsp pourquoi
+				Client c = new Client(nomClient,prenomClient,argent);
 				Magasin.dirigerClients(c);
 			
 				break;
