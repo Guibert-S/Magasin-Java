@@ -314,7 +314,7 @@ public class FileDriver {
 			
 				break;
 			case(3):
-				Magasin.dirigerClients();
+				Magasin.dirigerClients(c);
 				break;
 			default :
 				System.out.println( " Entrer une option valide ! " );}
