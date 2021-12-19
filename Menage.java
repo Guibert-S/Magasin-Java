@@ -9,6 +9,7 @@ public class Menage extends Employe {
 	 */	
 	public Menage(String nom,String prenom,Poste emploi) {
 		super(nom, prenom, emploi);
+		this.salaire=1200;
 	}
 	
 	/** methode pour recuperer le salaire 
