@@ -157,16 +157,9 @@ public class Magasin {
 	}
 	
 	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
+	 * @param c le client a conseiller
 	 */
-	public static void dirigerClients() {
-		Scanner scan = new Scanner(System.in);
-		System.out.print(" Quel est votre nom: \n");
-		String nomClient = scan.nextLine();
-		System.out.print("Quel est votre prénom \n");
-		String prenomClient = scan.nextLine();
-		System.out.print(" Quel est votre budjet : \n"); // bizarre de demander ca mais obligé pour creer un client je crois
-		int argent = scan.nextInt();
-		Client c = new Client(nomClient,prenomClient,argent);
+	public static void dirigerClients(Client c) {
 		if(c.getArgent()>1000) {
 			filtre("P");
 		}
