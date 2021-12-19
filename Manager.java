@@ -31,7 +31,7 @@ public class Manager extends Employe {
 	 */
 	public static void afficherEmployeVendeur() {
 		Iterator<Vendeur> it =vendeurs.iterator();
-		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
+		while(it.hasNext()) {
 			Vendeur a=it.next();
 			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
 		}
@@ -87,7 +87,7 @@ public class Manager extends Employe {
 	 */
 	public static void afficherEmployeMenage() {
 		Iterator<Menage> it =menages.iterator();
-		while(it.hasNext()) {// tant que it.hasnext est different de nul, on continue dans la boucle.
+		while(it.hasNext()) {
 			Menage a=it.next();
 			System.out.println("Nom:"+a.getNom()+" Prenom: "+a.getPrenom());
 		}
@@ -121,7 +121,7 @@ public class Manager extends Employe {
    	}
    	
     
-    //scanner pour gerer les employé
+   
     static Scanner personne = new Scanner(System.in);
 
     /** methode pour embaucher des employés
