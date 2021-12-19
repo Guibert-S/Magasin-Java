@@ -263,7 +263,7 @@ public class Magasin {
  	 * @param quanti la quantite que le magasin veut acheter 
 	 */
 	public static void acheter(Fournisseur t,String nom,String categorie,int quanti) {
-		Article a=this.traduction(nom,categorie);
+		Article a=traduction(nom,categorie);
 		revenu-=quanti*a.getPrixAchat();
 		a.afficherArticle();
 		int b=getArticles().get(a);
