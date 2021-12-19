@@ -184,12 +184,10 @@ public class Manager extends Employe {
  			
  		if( string1.equals(emploi)){
  			licencierMenage();
- 			System.out.println("vous avez licencié un employé menage");
        	 }
  		
  		else if ( string2.equals(emploi)) {
  			licencierVendeur();
- 			System.out.println("vous avez licencié un vendeur");
  		}
        	else{
        		System.out.println("le poste " + emploi +" n'existe pas ");
