@@ -88,19 +88,12 @@ public class Magasin {
 		getArticles().put(a, c);
 	}
 	
-	/** methode pour ajouter l'article à la liste/array/dictionnaire
-	 * @param a article ajouter, stock int a jouter 
-	 */
-	public static void ajouterArticle(Article a, int stock) { // on demande le stock au manager 
-		getArticles().put(a, stock);
-	}
-	
 	
 	/** methode pour ajouter un article et si on connait le stock en amont, si l'article n'existe pas on l'ajoute, sinon on ajoute le stock
 	 * @param a l'article 
 	 * @param stock de l'article
 	 */
-	public void AjouterArticlebis(Article a, int stock) {
+	public static void AjouterArticlebis(Article a, int stock) {
 		if( getArticles().containsKey(a)==true) {
 			int b=getArticles().get(a);
 			getArticles().replace(a,b,b+stock);
