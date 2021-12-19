@@ -36,7 +36,7 @@ public class Article {
 			
 		System.out.print("Prix  de vente de l'article  :\n" );
 		prixVente = objet.nextDouble();
-		objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
+		objet.nextLine() ;
 		
 		System.out.println("Categorie de l'article: P(premium), C(confort),E(entrée de gamme)");
 		categorie=objet.nextLine();
@@ -56,7 +56,7 @@ public class Article {
 			
 		System.out.print("Prix  de vente de l'article  :\n" );
 		prixVente = objet.nextDouble();
-		objet.nextLine() ; // si on met qu'une fois nextline ca marche pas pas donc bon ... //
+		objet.nextLine() ; 
 		
 		System.out.println("Categorie de l'article: P(premium), C(confort),E(entrée de gamme)");
 		categorie=objet.nextLine();
