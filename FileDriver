@@ -313,14 +313,7 @@ public class FileDriver {
 			
 				break;
 			case(3):
-				System.out.print(" Quel est votre nom: \n");
-				String nomClient = scan.nextLine();
-				System.out.print("Quel est votre prénom \n");
-				String prenomClient = scan.nextLine();
-				System.out.print(" Quel est votre budjet : \n");
-				int argent = scan.nextInt();
-				Client c = new Client(nomClient,prenomClient,argent);
-				Magasin.dirigerClients(c);
+				Magasin.dirigerClients();
 			
 				break;
 			default :
