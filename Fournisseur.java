@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 /** classe pour créer differents 4 fournisseurs: articles de ski, accessoires, boissons, nourritures */
 public class Fournisseur {
-	// du coup, 4 fournissuers avec comme attributs le nom, la liste d'articles qu'ils vendent, avec pour faciliter le stock ils peuvet en produire autant qu'on veut(sinon creation de tuples et plus galere) 
 	
 	private String nomFourni;
 	private ArrayList<Tuple<Article,Integer>> artfourni=new ArrayList <Tuple<Article,Integer>>();;
@@ -48,7 +47,7 @@ public class Fournisseur {
 	 * @param article qu'il fournit
 	 * @param stock du fournisseur
 	 */
-	public Fournisseur(String nom, ArrayList<Article> article,int stock) {//article et stock de meme taille 
+	public Fournisseur(String nom, ArrayList<Article> article,int stock) {
 		this.nomFourni=nom;
 		Iterator <Article> it=article.iterator();
 		
