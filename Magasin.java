@@ -112,19 +112,22 @@ public class Magasin {
 		if(!(clients.contains(c))) {
 			clients.add(c);
 		}
-		
 		int d=c.getAchat();
+		int b=getArticles().get(a);
+		if(b==0) {
+			System.out.println("Il n'y a plus de stocks ");
+			return;
+		}
 		if(c.getArgent()<a.getPrixVente()) {
 			System.out.println("Vous n'avez pas assez d'argent pour acheter cet article");
 			return;
 		}
 		else {
-			if(d>=5){// si le client a fait plus de 5 achats dans le magasin alors on applique une reduction de 20 %
+			if(d>=5){
 				c.setArgent(c.getArgent() - a.getPrixVente()*0.8);
 				setRevenu(getRevenu() + a.getPrixVente()*0.8);
 				int e=c.getAchat();
-				c.setAchat(e+1);
-				int b=getArticles().get(a); 
+				c.setAchat(e+1);	 
 				getArticles().replace(a, b-1); 
 			}
 			else {
@@ -132,7 +135,7 @@ public class Magasin {
 				setRevenu(getRevenu() + a.getPrixVente());
 				int e=c.getAchat();
 				c.setAchat(e+1);
-				int b=getArticles().get(a); 
+				 
 				getArticles().replace(a, b-1); 
 			}
 		}
