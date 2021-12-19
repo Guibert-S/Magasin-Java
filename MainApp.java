@@ -17,6 +17,7 @@ public class MainApp {
 		a1.add(b);
 		a1.add(c);
 		Fournisseur f=new Fournisseur("Fournisseur1",a1,100);
+		mag.ajouterFournisseur(f);
 		FileDriver.ecrireFichier(FileDriver.chemin,Magasin.getArticles());
 		
 		FileDriver.lireFichierSauvegarder(FileDriver.chemin);
