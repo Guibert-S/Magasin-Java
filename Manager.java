@@ -195,6 +195,25 @@ public class Manager extends Employe {
        		System.out.println("le poste " + emploi +" n'existe pas ");
 		}
  	}
+	
+	public static ArrayList <Menage> getMenages() {
+		return menages;
+	}
+
+
+	public static void setMenages(ArrayList <Menage> menages) {
+		Manager.menages = menages;
+	}
+
+
+	public static ArrayList <Vendeur> getVendeurs() {
+		return vendeurs;
+	}
+
+
+	public static void setVendeurs(ArrayList <Vendeur> vendeurs) {
+		Manager.vendeurs = vendeurs;
+	}
  	
 }  
  
