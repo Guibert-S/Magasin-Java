@@ -4,7 +4,8 @@ public class MainApp {
 	 
 	public static void main (String[] args) {
 		
-		Magasin mag=new Magasin("Decathlon",200);//200 correspond aux charges
+		Magasin mag=new Magasin("Decathlon",200);
+		Manager chef = new Manager("Musk", "Elon",Poste.Manager);
 		Article a=new Article("Ski",200,400,"P");
 		Article b=new Article ("Ski",100,200,"C");
 		Article c=new Article ("Ski",60,120,"E");
