@@ -295,31 +295,10 @@ public class Magasin {
 		System.out.println("Quantité: ");
 		int quanti=objet.nextInt();
 		System.out.println(nom+categorie+quanti);
-		acheter(t,nom,categorie,quanti);
-		
+		acheter(t,nom,categorie,quanti);	
 		
 	}
 	
-	public static void main (String [] args ) {
-		Magasin mag=new Magasin("Decathlon",200);//200 correspond aux charges
-		Article a=new Article("Ski",200,400,"P");
-		Article b=new Article ("Ski",100,200,"C");
-		Article c=new Article ("Ski",60,120,"E");
-		mag.AjouterArticlebis(a,1);
-		mag.AjouterArticlebis(b,1);
-		mag.AjouterArticlebis(c,1);
-		Vendeur jo=new Vendeur("john","doe",Poste.Vendeur,0);
-		jo.affichage();
-		ArrayList <Article> a1=new ArrayList<Article>();
-		a1.add(a);
-		a1.add(b);
-		a1.add(c);
-		
-				
-		
-		
-		
-	}
 
 	/** getter pour donner le dictionnaire article 
 	 * @return le dictionnaire d'article avec le stock correpspondant
