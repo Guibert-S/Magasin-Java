@@ -57,7 +57,7 @@ public class Manager extends Employe {
    	public static boolean pasDoublonVendeur(Vendeur v) {
    		for (int i = 0; i<vendeurs.size();i++) {
    			Vendeur a = vendeurs.get(i);
-   			if (v.getNom().equals(a.getNom()) || v.getPrenom().equals(a.getPrenom())) {
+   			if (v.getNom().equals(a.getNom()) && v.getPrenom().equals(a.getPrenom())) {
    				return false;
    			}
    		}
@@ -113,7 +113,7 @@ public class Manager extends Employe {
    	public static boolean pasDoublonMenage(Menage m) {
    		for (int i = 0; i<menages.size();i++) {
    			Menage a = menages.get(i);
-   			if (m.getNom().equals(a.getNom()) || m.getPrenom().equals(a.getPrenom())) {
+   			if (m.getNom().equals(a.getNom()) && m.getPrenom().equals(a.getPrenom())) {
    				return false;
    			}
    		}
