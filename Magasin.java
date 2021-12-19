@@ -26,7 +26,7 @@ public class Magasin {
 	 * @param nom du magasin
 	 * @param charges du magasin
 	 */
-	public Magasin(String nom,double charges) {//initialisation du magasin avec les charges. 
+	public Magasin(String nom,double charges) {
 		this.jour=1;
 		this.setRevenu(2000);
 		this.nom=nom;
@@ -54,7 +54,7 @@ public class Magasin {
 	 * @param categorie de l'article
 	 * @return le type Article correspondant dans l'inventaire
 	 */
-	public static Article traduction(String s,String categorie) {// on prend le nom d'un article et on renvoie le type Article correspondant dans l'inventaire
+	public static Article traduction(String s,String categorie) {
 		Iterator<Entry<Article, Integer>> it=getArticles().entrySet().iterator();
 		while(it.hasNext()) {
 			Map.Entry m=(Map.Entry) it.next();
@@ -82,7 +82,7 @@ public class Magasin {
 	/** methode pour ajouter l'article à la liste/array/dictionnaire
 	 * @param a article ajouter 
 	 */
-	public static void ajouterArticle(Article a) { // on demande le stock au manager 
+	public static void ajouterArticle(Article a) { 
 		System.out.println("Quelle est le stock de votre article "+a.getNom()+"?");
 		int c=objet.nextInt();
 		getArticles().put(a, c);
@@ -124,16 +124,16 @@ public class Magasin {
 				setRevenu(getRevenu() + a.getPrixVente()*0.8);
 				int e=c.getAchat();
 				c.setAchat(e+1);
-				int b=getArticles().get(a); // on recupere l'int , le stock de l'article
-				getArticles().replace(a, b-1); // diminue le stock de 1
+				int b=getArticles().get(a); 
+				getArticles().replace(a, b-1); 
 			}
 			else {
 				c.setArgent(c.getArgent() - a.getPrixVente());
 				setRevenu(getRevenu() + a.getPrixVente());
 				int e=c.getAchat();
 				c.setAchat(e+1);
-				int b=getArticles().get(a); // on recupere l'int , le stock de l'article
-				getArticles().replace(a, b-1); // diminue le stock de 1
+				int b=getArticles().get(a); 
+				getArticles().replace(a, b-1); 
 			}
 		}
 		int r=v.getVente();
@@ -142,7 +142,7 @@ public class Magasin {
 	/** methode pour filtrer les produits en fonction de leur categorie
  	 * @param s categorie de l'article : choix entre E, C ou P
 	 */
-	public static void filtre(String s){//filtre les produits en focntion de leur categorie, premium etc..
+	public static void filtre(String s){
 		Iterator it = getArticles().entrySet().iterator();
         	while (it.hasNext()) {
         		Map.Entry m=(Map.Entry) it.next();
@@ -155,7 +155,7 @@ public class Magasin {
 	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
 	 * @param t client a conseiller
 	 */
-	public static void dirigerClients(Client t) {// on va conseiller le client en fonction de son budget. 3 cas: premium, confort, entree de gamme 
+	public static void dirigerClients(Client t) {
 		if(t.getArgent()>1000) {
 			filtre("P");
 		}
@@ -171,7 +171,7 @@ public class Magasin {
 	 */
 	public static void afficherInventaire() {
 		 Iterator it = getArticles().entrySet().iterator();
-	        while (it.hasNext()) {// has.Next, booleanqui indique s'il existe elements dans la collection cf cours 7
+	        while (it.hasNext()) {
 	            Map.Entry m = (Map.Entry) it.next();
 	            System.out.println("Article: "+((Article) m.getKey()).getNom()+" Categorie:"+((Article) m.getKey()).getCategorie()+", Stock: "+m.getValue());
 	        }
@@ -211,7 +211,7 @@ public class Magasin {
 	
 	/** methode pour simuler le paiement des charges et le paiement des salaires (charges fixes)
 	 */
-	public static void finMois() {// permet de simuler le paiement des charges et le paiement des salaires (charges fixes)
+	public static void finMois() {
 		setRevenu(getRevenu() - charges);
 		for(Vendeur i:Manager.getVendeurs()) {
 			setRevenu(getRevenu() - i.salaire);
@@ -262,7 +262,7 @@ public class Magasin {
 		int b=getArticles().get(a);
 		getArticles().replace(a,b,b+quanti);
 		t.diminuerDispo(a, quanti);
-		//penser à diminuer le stock
+	
 	}
 	
 	/** methode pour acheter des articles a un fournisseur
