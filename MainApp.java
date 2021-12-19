@@ -1,5 +1,7 @@
 /** classe application */
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
 public class MainApp {
 	 
 	public static void main (String[] args) {
@@ -20,12 +22,20 @@ public class MainApp {
 		mag.ajouterFournisseur(f);
 		Vendeur v=new Vendeur("Guibert","Samuel",Poste.Vendeur,0);
 		chef.ajoutEmployeVendeur(v);
-		FileDriver.ecrireFichier(FileDriver.chemin,Magasin.getArticles());
 		
-		FileDriver.lireFichierSauvegarder(FileDriver.chemin);
-		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Souhaitez vous utiliser la sauvegarde et les fichiers : si oui tapez 1 sinon 0");
+		int choix = scan.nextInt();
+		if (choix == 1) {
+			FileDriver.ecrireFichier(FileDriver.chemin,Magasin.getArticles());
+			FileDriver.lireFichierSauvegarder(FileDriver.chemin);
+			FileDriver.lancerMenu1();
+			FileDriver.lancerMenu2();
+		}
+		else {
 		FileDriver.lancerMenu1();
 		FileDriver.lancerMenu2();
+		}
 	}
 
 }
