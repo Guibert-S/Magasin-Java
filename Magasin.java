@@ -9,7 +9,7 @@ import java.util.Objects;
 /** classe qui fait fonctionner le magasin*/
 
 public class Magasin {
-	private int jour;
+	private static int jour;
 	private static String nom;
 	private static double revenu;
 	private static double charges;
