@@ -18,6 +18,8 @@ public class MainApp {
 		a1.add(c);
 		Fournisseur f=new Fournisseur("Fournisseur1",a1,100);
 		mag.ajouterFournisseur(f);
+		Vendeur v=new Vendeur("Guibert","Samuel",Poste.Vendeur,0);
+		chef.ajoutEmployeVendeur(v);
 		FileDriver.ecrireFichier(FileDriver.chemin,Magasin.getArticles());
 		
 		FileDriver.lireFichierSauvegarder(FileDriver.chemin);
