@@ -138,7 +138,7 @@ public class Magasin {
 		}
 		int r=v.getVente();
 		v.setVente(r+1);
-		System.out.println("Vous avez acheter:"+a.getNom()+"\n"+"Voici votre budget: "+c.getArgent());
+		System.out.println("Vous avez acheté:"+a.getNom()+"\n"+"Voici votre budget: "+c.getArgent());
 	}
 	/** methode pour filtrer les produits en fonction de leur categorie
  	 * @param s categorie de l'article : choix entre E, C ou P
