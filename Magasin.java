@@ -171,9 +171,9 @@ public class Magasin {
 	 */
 	public static void afficherInventaire() {
 		 Iterator it = getArticles().entrySet().iterator();
-	        while (it.hasNext()) {
+	        while (it.hasNext()) {// has.Next, boolean qui indique s'il existe elements dans la collection cf cours 7
 	            Map.Entry m = (Map.Entry) it.next();
-	            System.out.println("Article: "+((Article) m.getKey()).getNom()+" Categorie:"+((Article) m.getKey()).getCategorie()+", Stock: "+m.getValue());
+	            System.out.println("Article: "+((Article) m.getKey()).getNom()+" Categorie:"+((Article) m.getKey()).getCategorie()+" Prix: "+((Article) m.getKey()).getPrixVente()+" Stock: "+m.getValue());
 	        }
 	}
 	
