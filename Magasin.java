@@ -67,8 +67,8 @@ public class Magasin {
 	}
 	
 	/** methode pour obtenir la valeur à partir d'une clef 
-	 * * @param map contenant les articles
-	 * @param  valeur pour acceder à la clef
+	 * @param map contenant les articles
+	 * @param value pour acceder à la clef
 	 * @return le type Article correspondant dans l'inventaire**/ 
 	 public static <K, V> K obtenirUneClefAvecKey(Map<K, V> map, V value) {
         for (Map.Entry<K, V> entry : map.entrySet()) {
@@ -154,7 +154,6 @@ public class Magasin {
 	}
 	
 	/** methode pour conseiller le client en fonction de son budget : 3 cas: premium, confort, entree de gamme
-	 * @param t client a conseiller
 	 */
 	public static void dirigerClients() {
 		Scanner scan = new Scanner(System.in);
@@ -310,7 +309,7 @@ public class Magasin {
 	}
 
 	/** setter pour l'inventaire
-	 * @param HashMap de l'inventaire
+	 * @param articles de l'inventaire
 	 */
 	public static void setArticles(Map<Article,Integer> articles) {
 		Magasin.articles = articles;
