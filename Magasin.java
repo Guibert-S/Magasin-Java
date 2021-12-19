@@ -165,10 +165,10 @@ public class Magasin {
 		if(t.getArgent()>1000) {
 			filtre("P");
 		}
-		if(t.getArgent()>500) {
+		else if(t.getArgent()>500) {
 			filtre("C");
 		}
-		if(t.getArgent()<250) {
+		else if(t.getArgent()<250) {
 			filtre("E");
 		}
 	}
@@ -320,15 +320,15 @@ public class Magasin {
 		
 	}
 
-	/** getter pour donner le dictionnaire article ?
-	 * @return ....
+	/** getter pour donner le dictionnaire article 
+	 * @return le dictionnaire d'article avec le stock correpspondant
 	 */
 	public static Map<Article,Integer> getArticles() {
 		return articles;
 	}
 
-	/** setter pour recuperer le dictionnaire article ?
-	 * @param articles ....
+	/** setter pour l'inventaire
+	 * @param HashMap de l'inventaire
 	 */
 	public static void setArticles(Map<Article,Integer> articles) {
 		Magasin.articles = articles;
