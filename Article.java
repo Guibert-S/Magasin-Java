@@ -29,18 +29,18 @@ public class Article {
 	public Article() {
 		Scanner objet = new Scanner (System.in);
 		System.out.print("Nom de l'article :\n" );
-		nom = objet.nextLine(); // String // 
+		nom = objet.nextLine();
 			
 		System.out.print("Prix d'achat de l'article :\n" );
 		prixAchat= objet.nextDouble();
 			
 		System.out.print("Prix  de vente de l'article  :\n" );
 		prixVente = objet.nextDouble();
-		objet.nextLine() ;
+		objet.nextLine() ; 
 		
 		System.out.println("Categorie de l'article: P(premium), C(confort),E(entrée de gamme)");
 		categorie=objet.nextLine();
-		objet.close();	
+			
 		
 	}
 	
