@@ -356,6 +356,12 @@ public class Magasin {
 		return nom;
 	}
 
+	public static int getJour() {
+		return jour;
+	}
+	public static void setJour(int a) {
+		Magasin.jour=a;
+	}
 	
 
 
