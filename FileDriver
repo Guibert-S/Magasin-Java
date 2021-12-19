@@ -144,7 +144,7 @@ public class FileDriver {
 	System.out.println( "-----------------------------------");
 	System.out.println( "           Bienvenue               ");
 	System.out.println( "       dans notre magasin:         ");
-	System.out.println( "       "+Magasin.getNom().toUpperCase()+"        ");
+	System.out.println( "           "+Magasin.getNom().toUpperCase()+"        ");
 	System.out.println( "-----------------------------------");
 }
 	/** methode pour afficher le menu 1 dans la console 
